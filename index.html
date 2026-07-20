@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Kalam:wght@400;700&display=swap">
-<script>window.SBP_GA4='G-XXXXXXXXXX';window.SBP_CLARITY='XXXXXXXXXX';</script>
+<script>window.SBP_GA4='G-XXXXXXXXXX';window.SBP_CLARITY='xpktis36jn';</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());gtag('config',window.SBP_GA4,{page_title:'precall_confirm'});</script>
@@ -21,7 +21,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,
 :root{
   --navy:#0A1525; --navy-2:#0F1E35; --cream:#FAF7F0; --white:#FFFFFF;
   --ink:#0F1E35; --ink2:#4A5568; --muted:#7C8697;
-  --gold:#C8A84B; --gold-l:#DCC079; --red:#D2402E;
+  --gold:#C8A84B; --gold-l:#DCC079; --red:#D2402E; --green:#1F8F55;
   --line:#E7E0D0; --line-d:rgba(255,255,255,.16);
   --r:10px;
   --serif:'Playfair Display',Georgia,serif;
@@ -77,8 +77,8 @@ section{padding-block:var(--gap)}
 .player{position:relative;border:3px solid var(--gold);border-radius:var(--r);overflow:hidden;
   background:#000;cursor:pointer;line-height:0}
 .player video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-.loadbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.18)}
-.lfill{height:100%;width:0;background:var(--gold);transition:width .25s linear}
+.loadbar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.22);z-index:3}
+.lfill{height:100%;width:0;background:var(--gold);transition:width .3s linear;box-shadow:0 0 8px rgba(200,168,75,.7)}
 .tap-sound{position:absolute;top:.7rem;right:.7rem;display:flex;align-items:center;gap:.4rem;
   background:rgba(10,21,37,.82);color:#fff;font-family:var(--sans);font-size:.8rem;font-weight:600;
   padding:.42rem .7rem;border-radius:999px;line-height:1;backdrop-filter:blur(6px);
@@ -86,8 +86,11 @@ section{padding-block:var(--gap)}
 .tap-sound svg{width:15px;height:15px;flex:none}
 .tap-sound.gone{display:none}
 .bigplay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(10,21,37,.26)}
+@keyframes sbpBreath{0%,100%{transform:scale(1);box-shadow:0 8px 26px rgba(0,0,0,.35),0 0 0 0 rgba(200,168,75,.55)}
+  50%{transform:scale(1.07);box-shadow:0 8px 26px rgba(0,0,0,.35),0 0 0 16px rgba(200,168,75,0)}}
 .bigplay i{width:64px;height:64px;border-radius:50%;background:var(--gold);display:grid;place-items:center;
-  box-shadow:0 8px 26px rgba(0,0,0,.35)}
+  box-shadow:0 8px 26px rgba(0,0,0,.35);animation:sbpBreath 2.2s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.bigplay i{animation:none}}
 .bigplay i:after{content:"";border-left:18px solid #0A1525;border-top:11px solid transparent;
   border-bottom:11px solid transparent;margin-left:5px}
 .player.playing .bigplay{display:none}
@@ -143,15 +146,17 @@ section{padding-block:var(--gap)}
 .math{display:grid;gap:1.4rem 0;align-items:start}
 @media(min-width:820px){.math{grid-template-columns:1fr auto 1fr auto 1fr;gap:0 clamp(1rem,2.5vw,2.2rem)}}
 .mcell{display:grid;gap:.5rem;align-content:start}
-.mcell .fig{font-family:var(--stat);font-weight:700;font-size:clamp(2.6rem,8vw,3.6rem);line-height:1;
+.mcell .fig{font-family:var(--stat);font-weight:700;font-size:clamp(2.9rem,9vw,4.1rem);line-height:1;
   color:var(--navy);letter-spacing:-.01em}
 .mcell .fig span{font-size:.62em}
 .mcell .lbl{font-family:var(--cond);font-size:.86rem;letter-spacing:.15em;text-transform:uppercase;
   font-weight:700;color:var(--gold)}
 .mcell p{font-size:.98rem;color:var(--ink2);line-height:1.62}
-.op{display:grid;align-items:start;padding-top:.1rem;font-family:var(--stat);font-size:clamp(1.8rem,4vw,2.4rem);
-  color:var(--navy);font-weight:700}
+.op{display:grid;align-items:start;padding-top:.15rem;font-family:var(--stat);font-size:clamp(1.9rem,4.2vw,2.7rem);
+  color:var(--gold);font-weight:700}
 @media(max-width:819px){.op{justify-items:start;padding:0}}
+.mcell.out .fig{color:var(--green);font-size:clamp(3.5rem,11vw,5.2rem);letter-spacing:-.02em}
+.mcell.out .lbl{color:var(--green)}
 
 /* ---- the work ---- */
 .bagrid{display:grid;gap:.9rem}
@@ -201,6 +206,18 @@ section{padding-block:var(--gap)}
 .note p{font-family:var(--hand);font-size:1.14rem;line-height:1.45;color:#2A2206;max-width:none;margin-inline:auto}
 .note .sig{font-family:var(--hand);font-size:1.26rem;font-weight:700}
 
+/* ---- faq ---- */
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:var(--r);margin-bottom:.55rem;overflow:hidden}
+.faq summary{cursor:pointer;list-style:none;padding:1rem clamp(.95rem,3vw,1.25rem);padding-right:2.6rem;
+  position:relative;font-weight:700;font-size:1rem;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"";position:absolute;right:1.1rem;top:1.25rem;width:9px;height:9px;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .25s}
+.faq details[open] summary:after{transform:rotate(-135deg)}
+.faq details[open] summary{background:var(--cream)}
+.faq .a{padding:0 clamp(.95rem,3vw,1.25rem) 1.15rem;color:var(--ink2)}
+.faq .a p{font-size:.97rem;max-width:64ch}
+.faq summary:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
 footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:center;font-size:.86rem}
 
 .rv-armed{opacity:0;transform:translateY(16px)}
@@ -212,7 +229,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
 
 <header class="bar">
   <div class="bar-in">
-    <span class="wordmark">Solid Booked<i>.</i></span>
+    <span class="wordmark">Solid Booked <i>Pro</i></span>
     <div class="trust"><span>One payment</span><span>No contract</span><span>You own it</span><span>Money-back guarantee</span></div>
   </div>
 </header>
@@ -271,7 +288,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
-        <div class="slide q"><div class="big">How fast will we see anything?</div><p>Straight answer, including the part you will not love.</p></div>
+        <div class="slide q"><div class="big">How long before we see anything?</div><p>Straight answer, including the part you will not love.</p></div>
         <div class="slide"><div class="big">Reviews move first.</div><p>That is usually the first thing you notice, inside the first few weeks.</p></div>
         <div class="slide"><div class="big">More reviews means more customers see you.</div>
           <video class="sv" autoplay muted loop playsinline preload="none" poster="assets/img/poster-rank-climb.jpg"><source src="assets/video/rank-climb.mp4" type="video/mp4"></video></div>
@@ -281,7 +298,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
-        <div class="slide q"><div class="big">Who owns the site and the domain?</div><p>And what happens the day we walk away?</p></div>
+        <div class="slide q"><div class="big">What happens the day we're done working together?</div><p>The short version: you keep everything.</p></div>
         <div class="slide"><div class="big">An owner was asked for <span class="pop">$2,000</span> to get his own domain back.</div><p>The domain itself costs about ten dollars. He had been paying that company for years, and they had been holding the keys the whole time.</p></div>
         <div class="slide"><div class="big">Yours. In your name.</div><p>Built on your domain, registered to you. Not licensed, not rented, not sitting in our account.</p></div>
         <div class="slide"><div class="big">You keep the reviews and the customers.</div><p>The reviews live on your Google page, they were always yours. Anybody who found you through the site is your customer.</p></div>
@@ -312,7 +329,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
-        <div class="slide q"><div class="big">What results can we actually expect?</div><p>Here is what we will not promise you.</p></div>
+        <div class="slide q"><div class="big">What don't you promise?</div><p>Straight about what we are not going to say.</p></div>
         <div class="slide"><div class="big">Not the top spot on Google.</div><p>Nobody can promise that. Google decides it, it moves constantly, and anyone telling you different is either guessing or counting on you not knowing.</p></div>
         <div class="slide"><div class="big">Not that you'll close them.</div><p>That is your end, and you are better at it than we are. We can get somebody to raise their hand. We cannot make them sign.</p></div>
         <div class="slide"><div class="big">Not if nobody picks up.</div><p>We can send people and keep talking to the ones who are not ready. If the phone rings out, none of the rest matters.</p></div>
@@ -381,7 +398,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     <div class="hiw-head rv">
       <p class="eyebrow lead">How it works</p>
       <h2 class="hiw-title">The <span class="sysname">5-Star Referral System</span><sup>&trade;</sup></h2>
-      <blockquote class="hiw-q">How are we able to generate 12x more reviews than the leading software? Here's the math:</blockquote>
+      <blockquote class="hiw-q">How are we able to generate 12x more reviews than the leading software?<br>Here's the math:</blockquote>
     </div>
     <div class="math rv">
       <div class="mcell"><div class="fig">4<span>x</span></div><span class="lbl">More opportunities</span>
@@ -390,7 +407,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       <div class="mcell"><div class="fig">3<span>x</span></div><span class="lbl">Better conversion</span>
         <p>Between 50 and 70% of customers actually leave one, because the ask is personal and timed to the job rather than a generic blast weeks later.</p></div>
       <div class="op">=</div>
-      <div class="mcell"><div class="fig">12<span>x</span></div><span class="lbl">The result</span>
+      <div class="mcell out"><div class="fig">12<span>x</span></div><span class="lbl">The result</span>
         <p>More reviews lifts where you rank. Ranking higher brings more enquiries. Following every one of them up turns more of those into work.</p></div>
     </div>
   </div>
@@ -401,7 +418,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
   <div class="wrap stack g3">
     <div class="narrow center stack g2">
       <p class="eyebrow rv">The work</p>
-      <h2 class="rv">Before and after</h2>
+      <h2 class="rv">Before and After</h2>
       <p class="lede rv">Same business, same services, same owner. Only the first impression changed.</p>
     </div>
     <div class="bagrid rv">
@@ -412,7 +429,6 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       <figure class="bacard"><img src="assets/img/ba-ashley.jpg" alt="A speaker coaching site before and after" loading="lazy"></figure>
       <figure class="bacard"><img src="assets/img/ba-eleni.jpg" alt="A hypnotherapy practice site before and after" loading="lazy"></figure>
       <figure class="bacard"><img src="assets/img/ba-kendall.jpg" alt="A coaching site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-sarah.jpg" alt="A business coaching site before and after" loading="lazy"></figure>
       <figure class="bacard"><img src="assets/img/ba-zubalenok.jpg" alt="A fitness program site before and after" loading="lazy"></figure>
       <figure class="bacard"><img src="assets/img/ba-rtt.jpg" alt="A therapy training site before and after" loading="lazy"></figure>
     </div>
@@ -425,8 +441,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     <div class="narrow center stack g2">
       <p class="eyebrow rv">In their words</p>
       <h2 class="rv">Owners talking it through</h2>
-      <p class="lede rv" style="color:#B9C2D0">Straight from the calls. Nothing scripted.</p>
-    </div>
+          </div>
     <div class="reels rv">
       <article class="reel"><video controls preload="none" playsinline poster="assets/img/poster-reel-deonco.jpg" data-vid="reel-deonco"><source src="assets/video/reel-deonco.mp4" type="video/mp4"></video>
         <div class="meta"><b>Deonco, Black Mold Guys</b>On the $12,000 he spent before this, and what he had been getting wrong.</div></article>
@@ -458,6 +473,26 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
   </div>
 </section>
 
+<!-- ===== FAQ ===== -->
+<section class="band">
+  <div class="wrap narrow stack g3">
+    <div class="center stack g2">
+      <p class="eyebrow rv">A few more</p>
+      <h2 class="rv">Quick answers</h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Is there a contract or setup fee?</summary><div class="a"><p>Neither. There is nothing recurring, so there is nothing to get out of, and the number you agree to is the whole cost.</p></div></details>
+      <details><summary>How long does it take?</summary><div class="a"><p>Reviews start moving in the first few weeks and the people we send arrive right away. Coming up on your own in a search builds over months. Inside 45 days you should have something real to point at.</p></div></details>
+      <details><summary>I already have a website. What happens to it?</summary><div class="a"><p>We work from what you have or replace it, whichever makes more sense once we look. If your domain sits somewhere like GoDaddy or Squarespace it stays yours either way, and we handle the moving parts.</p></div></details>
+      <details><summary>Where does a lead actually go?</summary><div class="a"><p>Your phone. It arrives as a text with their name, their number, and what they said they need. If you are on a job it still gets a real answer back and keeps talking to them until they are ready. Nothing sits in a dashboard.</p></div></details>
+      <details><summary>What is the process?</summary><div class="a"><p>Day one you review the site and mark changes. Day two we go after reviews from customers you have already worked with. Inside the first week we get you set up to show up in search, including the AI ones, and traffic starts.</p></div></details>
+      <details><summary>What can I change?</summary><div class="a"><p>Anything. The words, the services, the photos, the colours. You tell us and we make the change. There is nothing for you to log into.</p></div></details>
+      <details><summary>Who owns it?</summary><div class="a"><p>You do. The site and the domain are in your name. No monthly fee, nobody can hold it over you, and you take it with you if you ever leave.</p></div></details>
+      <details><summary>What if I do not get 5 prospects a month?</summary><div class="a"><p>Ask for your money back. It is an average across the first year, not a hard monthly floor, so one slow month does not decide it. You keep the website and the reviews either way.</p></div></details>
+    </div>
+  </div>
+</section>
+
 <!-- ===== SIMPLE PRICING ===== -->
 <section class="band">
   <div class="wrap stack g3">
@@ -476,7 +511,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
 </section>
 
 <footer>
-  <div class="wrap"><span class="wordmark foot">Solid Booked<i>.</i></span><br><br>One payment &middot; No contract &middot; You own it</div>
+  <div class="wrap">Solid Booked Pro</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -492,11 +527,19 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       LF=document.getElementById('lfill'),TS=document.getElementById('tapSound'),BP=document.getElementById('bigplay');
   if(P&&V){
     var unmuted=false;
-    V.addEventListener('timeupdate',function(){
-      if(!V.duration||!isFinite(V.duration))return;
-      /* bar deliberately runs ahead of playback */
-      LF.style.width=Math.min(100,(V.currentTime/V.duration)*100*1.45)+'%';
-    });
+    var barPct=0,barTimer=null;
+    function startBar(){
+      if(barTimer)return;
+      var dur=(V.duration&&isFinite(V.duration))?V.duration:120;
+      var perTick=100/((dur/1.45)*10); /* fill over duration/1.45, ~100ms ticks */
+      barTimer=setInterval(function(){
+        barPct=Math.min(100,barPct+perTick);
+        LF.style.width=barPct+'%';
+        if(barPct>=100)clearInterval(barTimer);
+      },100);
+    }
+    V.addEventListener('playing',startBar);
+    V.addEventListener('loadedmetadata',function(){if(!V.paused)startBar()});
     V.addEventListener('play',function(){P.classList.add('playing');P.classList.remove('paused')});
     V.addEventListener('pause',function(){P.classList.remove('playing');P.classList.add('paused')});
     function unmute(e){
@@ -577,6 +620,8 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
   addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){
     ev('brief_exit',{seconds:Math.round((Date.now()-t0)/1000),
       max_depth:Math.max.apply(null,Object.keys(hit).map(Number).concat([0]))})}});
+  document.querySelectorAll('.faq details').forEach(function(d){d.addEventListener('toggle',function(){
+    if(d.open)ev('faq_open',{q:d.querySelector('summary').textContent.trim().slice(0,60)})})});
   document.querySelectorAll('video[data-vid]').forEach(function(v){var q={};
     v.addEventListener('play',function(){ev('video_play',{video:v.dataset.vid})},{once:true});
     v.addEventListener('timeupdate',function(){if(!v.duration)return;var p=v.currentTime/v.duration;
