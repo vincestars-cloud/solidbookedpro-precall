@@ -56,6 +56,8 @@ section{padding-block:var(--gap)}
 .dark .eyebrow{color:var(--gold)}
 .band{background:var(--cream);border-block:1px solid var(--line)}
 .gold{color:var(--gold)}
+.nb{white-space:normal}
+@media(min-width:560px){.nb{white-space:nowrap}}
 .ul{position:relative;white-space:nowrap}
 .ul svg{position:absolute;left:-2%;bottom:-.3em;width:104%;height:.38em;overflow:visible}
 .ul path{stroke:var(--red);stroke-width:5;fill:none;stroke-linecap:round}
@@ -514,7 +516,10 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
 <!-- ===== SIMPLE PRICING ===== -->
 <section class="band" id="capture">
   <div class="wrap stack g3">
-    <div class="center"><p class="eyebrow rv">Simple pricing</p></div>
+    <div class="center stack g2">
+      <p class="eyebrow rv">Simple pricing</p>
+      <h2 class="rv">The Site That Only Costs You <span class="nb">Something If It Works</span></h2>
+    </div>
     <div class="pricebox rv">
       <span class="lbl">One time</span>
       <div class="fig">$297 - $997</div>
