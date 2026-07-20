@@ -121,14 +121,16 @@ section{padding-block:var(--gap)}
 .slide .pop{color:var(--gold)}
 .slide img,.slide .sv{border-radius:6px;border:1px solid var(--line);background:#fff;
   width:100%;max-height:186px;object-fit:contain}
-.deck-bar{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.6rem .75rem;
+.deck-bar{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.55rem .7rem;
   border-top:1px solid var(--line);background:var(--cream)}
-.dots{display:flex;gap:.3rem;flex-wrap:wrap}
+.deck-ctr{display:flex;flex-direction:column;align-items:center;gap:.35rem;min-width:0}
+.dots{display:flex;gap:.34rem;flex-wrap:wrap;justify-content:center}
 .dot{width:6px;height:6px;border-radius:50%;background:#CFC7B6;border:0;cursor:pointer;transition:.2s}
 .dot[aria-current="true"]{background:var(--gold);width:17px;border-radius:999px}
-.arrows{display:flex;gap:.35rem}
-.arw{width:1.85rem;height:1.85rem;border-radius:50%;border:1px solid var(--line);background:#fff;
-  cursor:pointer;display:grid;place-items:center;font-size:.85rem;color:var(--ink);font-family:inherit}
+.arw{width:2.7rem;height:2.7rem;flex:none;border-radius:50%;border:1px solid var(--line);background:#fff;
+  cursor:pointer;display:grid;place-items:center;font-size:1.25rem;color:var(--ink);font-family:inherit;
+  box-shadow:0 2px 6px -3px rgba(15,30,53,.3);transition:.16s}
+@media(min-width:840px){.arw{width:2.3rem;height:2.3rem;font-size:1.05rem}}
 .arw:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
 .arw:disabled{opacity:.3;cursor:default}
 .ct{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -159,8 +161,7 @@ section{padding-block:var(--gap)}
 .mcell.out .lbl{color:var(--green)}
 
 /* ---- the work ---- */
-.bagrid{display:grid;gap:.9rem}
-@media(min-width:680px){.bagrid{grid-template-columns:repeat(2,1fr)}}
+.bagrid{display:grid;gap:.7rem;grid-template-columns:repeat(2,1fr)}
 @media(min-width:1000px){.bagrid{grid-template-columns:repeat(3,1fr)}}
 .bacard{background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
   box-shadow:0 10px 24px -18px rgba(15,30,53,.4)}
@@ -221,6 +222,8 @@ section{padding-block:var(--gap)}
   mix-blend-mode:multiply;opacity:.5}
 .note p{font-family:var(--hand);font-size:clamp(1.08rem,2.8vw,1.24rem);line-height:1.5;color:#3A2E08;max-width:none;margin-inline:auto;position:relative}
 .note .sig{font-family:var(--hand);font-size:1.34rem;font-weight:700;color:#6B531A;position:relative}
+.note-h{font-family:var(--hand);font-weight:700;color:var(--red);position:relative;
+  font-size:clamp(1.5rem,5vw,1.9rem);line-height:1.1;margin-bottom:.15rem}
 
 /* ---- faq ---- */
 .faq details{background:var(--white);border:1px solid var(--line);border-radius:var(--r);margin-bottom:.55rem;overflow:hidden}
@@ -519,6 +522,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       <div class="terms">One payment.<br>You own it.<br>Money back guarantee.</div>
     </div>
     <div class="note rv">
+      <div class="note-h">If it Doesn't Work?</div>
       <p>You keep the website. You keep the reviews it collected for you. You keep any customers.</p>
       <p>That's how sure we are, this isn't just a business card.</p>
       <div class="sig">Solid Booked Pro</div>
@@ -583,10 +587,10 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     for(var k=0;k<n;k++){var d=document.createElement('button');d.className='dot';
       d.setAttribute('aria-label','Slide '+(k+1));d.dataset.k=k;dots.appendChild(d)}
     var ct=document.createElement('span');ct.className='ct';
-    var ar=document.createElement('div');ar.className='arrows';
     var pv=document.createElement('button');pv.className='arw';pv.innerHTML='&#8249;';pv.setAttribute('aria-label','Previous');
     var nx=document.createElement('button');nx.className='arw';nx.innerHTML='&#8250;';nx.setAttribute('aria-label','Next');
-    ar.append(pv,nx);bar.append(dots,ct,ar);deck.appendChild(bar);
+    var ctr=document.createElement('div');ctr.className='deck-ctr';ctr.append(ct,dots);
+    bar.append(pv,ctr,nx);deck.appendChild(bar);
     function go(t,rep){i=Math.max(0,Math.min(n-1,t));
       track.style.transform='translateX('+(-i*100)+'%)';
       dots.querySelectorAll('.dot').forEach(function(d,k){d.setAttribute('aria-current',k===i?'true':'false')});
