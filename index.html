@@ -279,7 +279,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     <div class="player paused" id="player">
       <video id="v" playsinline preload="auto" autoplay muted loop
         poster="assets/img/poster-tof-intro.jpg" data-vid="walkthrough"
-        data-full="assets/video/tof-intro.mp4" src="assets/video/tof-preview.mp4"></video>
+        data-full="assets/video/tof-intro.mp4"><source src="assets/video/tof-intro.mp4" type="video/mp4"></video>
       <div class="loadbar"><div class="lfill" id="lfill"></div></div>
       <div class="tap-sound" id="tapSound">
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -585,8 +585,6 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     V.addEventListener('pause',function(){if(unmuted){P.classList.remove('playing');P.classList.add('paused')}});
     function unmute(e){
       if(e)e.stopPropagation();
-      var full=V.getAttribute('data-full');
-      if(full&&V.currentSrc.indexOf('tof-preview')>-1){V.src=full;V.load();}
       V.muted=false;V.loop=false;V.currentTime=0;V.controls=true;unmuted=true;
       TS.classList.add('gone');
       var pr=V.play();if(pr&&pr.catch)pr.catch(function(){});
