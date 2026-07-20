@@ -9,13 +9,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Kalam:wght@400;700&display=swap">
-<script>window.SBP_GA4='G-XXXXXXXXXX';window.SBP_CLARITY='xpktis36jn';</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-gtag('js',new Date());gtag('config',window.SBP_GA4,{page_title:'precall_confirm'});</script>
+<!-- Microsoft Clarity (heatmaps + session recordings) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script",window.SBP_CLARITY);</script>
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","xpktis36jn");</script>
+<!-- Solid Booked Pro funnel beacon -> shared funnel Supabase (tagged solidbookedpro) -->
+<script>window.SBP_TRACK='https://n8n.americanlifeteam.com/webhook/sbp-funnel-track';</script>
 
 <style>
 :root{
@@ -513,7 +512,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
 </section>
 
 <!-- ===== SIMPLE PRICING ===== -->
-<section class="band">
+<section class="band" id="capture">
   <div class="wrap stack g3">
     <div class="center"><p class="eyebrow rv">Simple pricing</p></div>
     <div class="pricebox rv">
@@ -539,8 +538,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
 <script>
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function ev(n,p){if(typeof gtag==='function'){gtag('event',n,p||{})}
-    if(typeof clarity==='function'){try{clarity('event',n)}catch(e){}}}
+  function ev(n,p){if(typeof clarity==='function'){try{clarity('event',n)}catch(e){}}}
 
   /* ---- main video: demo.scalingsos.com player pattern ---- */
   var P=document.getElementById('player'),V=document.getElementById('v'),
@@ -621,6 +619,34 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     setTimeout(function(){document.querySelectorAll('.rv-armed').forEach(function(el){
       if(parseFloat(getComputedStyle(el).opacity)<0.05){el.style.opacity=1;el.style.transform='none'}})},2500);
   }
+
+  /* ---- Solid Booked Pro funnel beacon (matches demo.solidbookedpro.com) ---- */
+  (function(){
+    var URL=window.SBP_TRACK; if(!URL)return;
+    function uid(){try{var a=new Uint8Array(8);crypto.getRandomValues(a);
+      return Array.prototype.map.call(a,function(b){return('0'+b.toString(16)).slice(-2)}).join('')}
+      catch(e){return 't'+(performance.now()|0)}}
+    var vid=localStorage.getItem('sbp_vid');if(!vid){vid=uid();localStorage.setItem('sbp_vid',vid)}
+    var sid=sessionStorage.getItem('sbp_sid');if(!sid){sid=uid();sessionStorage.setItem('sbp_sid',sid)}
+    function utm(){var p=new URLSearchParams(location.search),o={};
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))o[k]=p.get(k)});return o}
+    function post(body,beacon){try{var d=JSON.stringify(body);
+      if(beacon&&navigator.sendBeacon){navigator.sendBeacon(URL,new Blob([d],{type:'application/json'}));return}
+      fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},body:d,keepalive:!!beacon}).catch(function(){})}catch(e){}}
+    post({kind:'visit',visitor_id:vid,session_id:sid,path:location.pathname,referrer:document.referrer,
+      user_agent:navigator.userAgent,utm:utm(),
+      tz:(function(){try{return Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(_){return ''}})(),
+      lang:navigator.language||''});
+    var reached=false;
+    function progress(bcn){post({kind:'presentation',visitor_id:vid,session_id:sid,video_id:'prep',reached_cta:reached,utm:utm()},bcn)}
+    var cap=document.getElementById('capture');
+    if(cap&&'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(en){
+        if(en.isIntersecting&&!reached){reached=true;progress(false)}})},{threshold:.4}).observe(cap);
+    }
+    document.addEventListener('visibilitychange',function(){if(document.hidden)progress(true)});
+    window.addEventListener('pagehide',function(){progress(true)});
+  })();
 
   /* ---- analytics ---- */
   ev('brief_view',{device:matchMedia('(max-width:767px)').matches?'mobile':matchMedia('(max-width:1023px)').matches?'tablet':'desktop',
