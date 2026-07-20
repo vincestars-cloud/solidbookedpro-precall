@@ -552,6 +552,10 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
   <div class="wrap">Solid Booked Pro</div>
 </footer>
 
+<div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="lbx-x" id="lbxX" aria-label="Close">&times;</button>
+  <img id="lbxImg" alt="">
+</div>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
@@ -708,9 +712,5 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       [.25,.5,.75,.95].forEach(function(m){if(p>=m&&!q[m]){q[m]=1;ev('video_progress',{video:v.dataset.vid,percent:Math.round(m*100)})}})})});
 })();
 </script>
-<div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Enlarged image">
-  <button class="lbx-x" id="lbxX" aria-label="Close">&times;</button>
-  <img id="lbxImg" alt="">
-</div>
 </body>
 </html>
