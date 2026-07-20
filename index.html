@@ -527,19 +527,19 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       LF=document.getElementById('lfill'),TS=document.getElementById('tapSound'),BP=document.getElementById('bigplay');
   if(P&&V){
     var unmuted=false;
-    var barPct=0,barTimer=null;
-    function startBar(){
-      if(barTimer)return;
-      var dur=(V.duration&&isFinite(V.duration))?V.duration:120;
-      var perTick=100/((dur/1.45)*10); /* fill over duration/1.45, ~100ms ticks */
-      barTimer=setInterval(function(){
-        barPct=Math.min(100,barPct+perTick);
-        LF.style.width=barPct+'%';
-        if(barPct>=100)clearInterval(barTimer);
-      },100);
+    /* fake load bar: runs faster than playback, self-corrects once duration is known, never resets */
+    var barPct=0,barOn=false,last=0;
+    function fillRate(){var d=(V.duration&&isFinite(V.duration)&&V.duration>1)?V.duration:90;
+      return 100/((d/1.45)*1000);} /* percent per ms */
+    function tick(now){
+      if(!barOn)return;
+      if(last){barPct=Math.min(100,barPct+ (now-last)*fillRate());LF.style.width=barPct.toFixed(2)+'%';}
+      last=now;
+      if(barPct<100)requestAnimationFrame(tick);
     }
+    function startBar(){if(barOn)return;barOn=true;last=0;requestAnimationFrame(tick);}
     V.addEventListener('playing',startBar);
-    V.addEventListener('loadedmetadata',function(){if(!V.paused)startBar()});
+    V.addEventListener('play',startBar);
     V.addEventListener('play',function(){P.classList.add('playing');P.classList.remove('paused')});
     V.addEventListener('pause',function(){P.classList.remove('playing');P.classList.add('paused')});
     function unmute(e){
