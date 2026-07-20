@@ -238,6 +238,20 @@ section{padding-block:var(--gap)}
 .faq .a{padding:0 clamp(.95rem,3vw,1.25rem) 1.15rem;color:var(--ink2)}
 .faq .a p{font-size:.97rem;max-width:64ch}
 .faq summary:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+/* ---- lightbox ---- */
+.lbx{position:fixed;inset:0;z-index:200;background:rgba(10,21,37,.92);display:none;
+  align-items:center;justify-content:center;padding:clamp(.8rem,4vw,2rem);cursor:zoom-out;
+  opacity:0;transition:opacity .2s}
+.lbx.on{display:flex;opacity:1}
+.lbx img{max-width:96vw;max-height:90vh;width:auto;height:auto;border-radius:8px;
+  box-shadow:0 24px 60px -12px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.12);cursor:default}
+.lbx-x{position:absolute;top:.9rem;right:1rem;width:2.6rem;height:2.6rem;border-radius:50%;
+  border:0;background:rgba(255,255,255,.14);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;
+  display:grid;place-items:center;backdrop-filter:blur(6px)}
+.lbx-x:hover{background:rgba(255,255,255,.24)}
+.bacard{cursor:zoom-in}
+.bacard img{transition:transform .18s}
+@media(hover:hover){.bacard:hover img{transform:scale(1.02)}}
 footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:center;font-size:.86rem}
 
 .rv-armed{opacity:0;transform:translateY(16px)}
@@ -264,8 +278,8 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     </div>
     <div class="player paused" id="player">
       <video id="v" playsinline preload="auto" autoplay muted loop
-        poster="assets/img/poster-tof-intro.jpg" data-vid="walkthrough">
-        <source src="assets/video/tof-intro.mp4" type="video/mp4"></video>
+        poster="assets/img/poster-tof-intro.jpg" data-vid="walkthrough"
+        data-full="assets/video/tof-intro.mp4" src="assets/video/tof-preview.mp4"></video>
       <div class="loadbar"><div class="lfill" id="lfill"></div></div>
       <div class="tap-sound" id="tapSound">
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -311,7 +325,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
         <div class="slide q"><div class="big">How long before we see anything?</div><p>Straight answer, including the part you will not love.</p></div>
         <div class="slide"><div class="big">Reviews move first.</div><p>That is usually the first thing you notice, inside the first few weeks.</p></div>
         <div class="slide"><div class="big">More reviews means more customers see you.</div>
-          <video class="sv" autoplay muted loop playsinline preload="none" poster="assets/img/poster-rank-climb.jpg"><source src="assets/video/rank-climb.mp4" type="video/mp4"></video></div>
+          <video class="sv" autoplay muted loop playsinline preload="metadata" poster="assets/img/poster-rank-climb.jpg"><source src="assets/video/rank-climb.mp4" type="video/mp4"></video></div>
         <div class="slide"><div class="big">The slow part is coming up on your own in a search.</div><p>That takes time. Anybody who tells you different is guessing or lying to you.</p></div>
         <div class="slide"><div class="big">So it's built around that gap.</div><p>Reviews and traffic carry the first stretch so you see a return immediately, while the slow part builds underneath it.</p></div>
         <div class="slide"><div class="big"><span class="pop">45 days.</span><br>Something real you can point at.</div><p>More reviews than you had. New customer calls you can trace back to it. If nothing has moved by then, ask us hard questions.</p></div>
@@ -328,7 +342,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       <div class="deck" data-deck><div class="slides">
         <div class="slide q"><div class="big">Why now and not in two years?</div><p>Two things changed. Both worth thirty seconds.</p></div>
         <div class="slide"><div class="big">You can't scroll past page one anymore.</div>
-          <video class="sv" autoplay muted loop playsinline preload="none" poster="assets/img/poster-google-scroll.jpg"><source src="assets/video/google-scroll.mp4" type="video/mp4"></video></div>
+          <video class="sv" autoplay muted loop playsinline preload="metadata" poster="assets/img/poster-google-scroll.jpg"><source src="assets/video/google-scroll.mp4" type="video/mp4"></video></div>
         <div class="slide"><div class="big">Google now has a button that just gets prices.</div>
           <img src="assets/img/ai-get-prices.webp" alt="A Google result with a Have AI get prices button" loading="lazy"></div>
         <div class="slide"><div class="big">Everybody is bidding for those top spots.</div><p>And the price of standing there goes up every year. That is a crowded room, and it costs more to be in it every time you look.</p></div>
@@ -463,15 +477,15 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       <h2 class="rv">Owners talking it through</h2>
           </div>
     <div class="reels rv">
-      <article class="reel"><video controls preload="none" playsinline poster="assets/img/poster-reel-deonco.jpg" data-vid="reel-deonco"><source src="assets/video/reel-deonco.mp4" type="video/mp4"></video>
+      <article class="reel"><video controls preload="metadata" playsinline poster="assets/img/poster-reel-deonco.jpg" data-vid="reel-deonco"><source src="assets/video/reel-deonco.mp4" type="video/mp4"></video>
         <div class="meta"><b>Deonco, Black Mold Guys</b>On the $12,000 he spent before this, and what he had been getting wrong.</div></article>
-      <article class="reel"><video controls preload="none" playsinline poster="assets/img/poster-reel-ijeoma.jpg" data-vid="reel-ijeoma"><source src="assets/video/reel-ijeoma.mp4" type="video/mp4"></video>
+      <article class="reel"><video controls preload="metadata" playsinline poster="assets/img/poster-reel-ijeoma.jpg" data-vid="reel-ijeoma"><source src="assets/video/reel-ijeoma.mp4" type="video/mp4"></video>
         <div class="meta"><b>Ijeoma, Oma Organics</b>On year five, customers who love it, and why they were not coming back.</div></article>
     </div>
     <div class="rail rv">
-      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-30yr.jpg" data-vid="review-30yr"><source src="assets/video/review-30yr.mp4" type="video/mp4"></video><div class="meta"><b>Thirty years in business</b>Mostly on word of mouth.</div></article>
-      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-older.jpg" data-vid="review-older"><source src="assets/video/review-older.mp4" type="video/mp4"></video><div class="meta"><b>What changed</b>After the site went live.</div></article>
-      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-03.jpg" data-vid="review-03"><source src="assets/video/review-03.mp4" type="video/mp4"></video><div class="meta"><b>The part that surprised him</b>In his own words.</div></article>
+      <article class="vtall"><video controls preload="metadata" playsinline poster="assets/img/poster-review-30yr.jpg" data-vid="review-30yr"><source src="assets/video/review-30yr.mp4" type="video/mp4"></video><div class="meta"><b>Thirty years in business</b>Mostly on word of mouth.</div></article>
+      <article class="vtall"><video controls preload="metadata" playsinline poster="assets/img/poster-review-older.jpg" data-vid="review-older"><source src="assets/video/review-older.mp4" type="video/mp4"></video><div class="meta"><b>What changed</b>After the site went live.</div></article>
+      <article class="vtall"><video controls preload="metadata" playsinline poster="assets/img/poster-review-03.jpg" data-vid="review-03"><source src="assets/video/review-03.mp4" type="video/mp4"></video><div class="meta"><b>The part that surprised him</b>In his own words.</div></article>
     </div>
   </div>
 </section>
@@ -567,6 +581,8 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     V.addEventListener('pause',function(){if(unmuted){P.classList.remove('playing');P.classList.add('paused')}});
     function unmute(e){
       if(e)e.stopPropagation();
+      var full=V.getAttribute('data-full');
+      if(full&&V.currentSrc.indexOf('tof-preview')>-1){V.src=full;V.load();}
       V.muted=false;V.loop=false;V.currentTime=0;V.controls=true;unmuted=true;
       TS.classList.add('gone');
       var pr=V.play();if(pr&&pr.catch)pr.catch(function(){});
@@ -673,11 +689,28 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       max_depth:Math.max.apply(null,Object.keys(hit).map(Number).concat([0]))})}});
   document.querySelectorAll('.faq details').forEach(function(d){d.addEventListener('toggle',function(){
     if(d.open)ev('faq_open',{q:d.querySelector('summary').textContent.trim().slice(0,60)})})});
+
+  /* ---- before/after lightbox ---- */
+  (function(){
+    var lb=document.getElementById('lbx'),img=document.getElementById('lbxImg'),x=document.getElementById('lbxX');
+    if(!lb)return;
+    function openLb(src,alt){img.src=src;img.alt=alt||'';lb.classList.add('on');document.body.style.overflow='hidden';ev('lightbox_open',{})}
+    function closeLb(){lb.classList.remove('on');document.body.style.overflow='';img.src=''}
+    document.querySelectorAll('.bacard img').forEach(function(i){
+      i.addEventListener('click',function(){openLb(i.currentSrc||i.src,i.alt)})});
+    lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+    x.addEventListener('click',closeLb);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))closeLb()});
+  })();
   document.querySelectorAll('video[data-vid]').forEach(function(v){var q={};
     v.addEventListener('play',function(){ev('video_play',{video:v.dataset.vid})},{once:true});
     v.addEventListener('timeupdate',function(){if(!v.duration)return;var p=v.currentTime/v.duration;
       [.25,.5,.75,.95].forEach(function(m){if(p>=m&&!q[m]){q[m]=1;ev('video_progress',{video:v.dataset.vid,percent:Math.round(m*100)})}})})});
 })();
 </script>
+<div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="lbx-x" id="lbxX" aria-label="Close">&times;</button>
+  <img id="lbxImg" alt="">
+</div>
 </body>
 </html>
