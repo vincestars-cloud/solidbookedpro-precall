@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>You've booked your call | Solid Booked Pro</title>
-<meta name="description" content="Watch the video, get your questions answered, and know exactly what happens on the call.">
+<meta name="description" content="Watch the video and get your questions answered before we talk.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +19,9 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,
 
 <style>
 :root{
-  --navy:#0A1525; --navy-2:#0F1E35; --cream:#FAF7F0; --cream-2:#FFFFFF;
+  --navy:#0A1525; --navy-2:#0F1E35; --cream:#FAF7F0; --white:#FFFFFF;
   --ink:#0F1E35; --ink2:#4A5568; --muted:#7C8697;
-  --gold:#C8A84B; --gold-l:#DCC079; --red:#D2402E; --green:#1B7F4B;
+  --gold:#C8A84B; --gold-l:#DCC079; --red:#D2402E;
   --line:#E7E0D0; --line-d:rgba(255,255,255,.16);
   --r:10px;
   --serif:'Playfair Display',Georgia,serif;
@@ -29,442 +29,364 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,
   --cond:'Barlow Condensed',var(--sans);
   --stat:'Oswald',var(--sans);
   --hand:'Kalam',cursive;
-  --pad:clamp(1.15rem,4.5vw,2rem); --gap:clamp(3.2rem,7.5vw,5.5rem);
+  --pad:clamp(1.1rem,4.5vw,2rem); --gap:clamp(3rem,7vw,5.2rem);
 }
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;background:var(--cream-2);color:var(--ink);font-family:var(--sans);
-  font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{max-width:100%;display:block}
-h1,h2,h3{margin:0;font-family:var(--serif);font-weight:800;letter-spacing:-.02em;line-height:1.08;text-wrap:balance}
-h1{font-size:clamp(2.1rem,6.4vw,3.5rem)}
-h2{font-size:clamp(1.7rem,4.6vw,2.6rem)}
-h3{font-size:clamp(1.1rem,2.7vw,1.35rem);line-height:1.25}
-p{margin:0;max-width:64ch}
+h1,h2,h3{font-family:var(--serif);font-weight:800;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+h1{font-size:clamp(1.95rem,6vw,3.3rem)}
+h2{font-size:clamp(1.6rem,4.4vw,2.5rem)}
+h3{font-size:clamp(1.05rem,2.6vw,1.28rem);line-height:1.28}
+p{max-width:64ch}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:var(--pad)}
-.narrow{max-width:740px;margin-inline:auto}
+.narrow{max-width:720px;margin-inline:auto}
 section{padding-block:var(--gap)}
 .center{text-align:center}.center p{margin-inline:auto}
 .stack{display:flex;flex-direction:column}
-.g1{gap:.5rem}.g2{gap:1rem}.g3{gap:1.7rem}.g4{gap:2.6rem}
+.g1{gap:.5rem}.g2{gap:1rem}.g3{gap:1.7rem}.g4{gap:2.5rem}
 .lede{font-size:clamp(1rem,2.1vw,1.14rem);color:var(--ink2)}
-.small{font-size:.88rem;color:var(--muted)}
-.eyebrow{font-family:var(--cond);font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--gold);
-  display:flex;align-items:center;gap:.6rem;justify-content:center}
-.eyebrow:before,.eyebrow:after{content:"";height:1px;width:26px;background:var(--gold);opacity:.6}
+.eyebrow{font-family:var(--cond);font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:700;color:var(--gold);display:flex;align-items:center;gap:.6rem;justify-content:center}
+.eyebrow:before,.eyebrow:after{content:"";height:1px;width:26px;background:var(--gold);opacity:.55}
 .dark{background:var(--navy);color:#fff}
 .dark h1,.dark h2,.dark h3{color:#fff}
 .dark p{color:#B9C2D0}
-.dark p.eyebrow,.eyebrow{color:var(--gold)}
-.dark .lede{color:#B9C2D0}
+.dark .eyebrow{color:var(--gold)}
 .band{background:var(--cream);border-block:1px solid var(--line)}
-
-/* hand-drawn underline */
-.ul{position:relative;white-space:nowrap}
-.ul svg{position:absolute;left:-2%;bottom:-.34em;width:104%;height:.4em;overflow:visible}
-.ul path{stroke:var(--red);stroke-width:5;fill:none;stroke-linecap:round}
 .gold{color:var(--gold)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--gold);color:#1A1405;
-  font-weight:900;font-size:.98rem;text-decoration:none;padding:.9rem 1.7rem;border-radius:6px;border:0;
-  cursor:pointer;transition:.18s;font-family:var(--sans);letter-spacing:.02em}
-.btn:hover{background:var(--gold-l)}
-.btn:active{transform:translateY(1px)}
-.btn.line{background:transparent;color:var(--gold);border:1px solid var(--gold)}
-.btn.line:hover{background:rgba(200,160,50,.12)}
+.ul{position:relative;white-space:nowrap}
+.ul svg{position:absolute;left:-2%;bottom:-.3em;width:104%;height:.38em;overflow:visible}
+.ul path{stroke:var(--red);stroke-width:5;fill:none;stroke-linecap:round}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 /* ---- bar ---- */
-.bar{position:sticky;top:0;z-index:60;background:var(--navy);border-bottom:1px solid var(--line-d)}
-.bar-in{max-width:1080px;margin:0 auto;padding:0 var(--pad);height:54px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.brand{font-family:var(--serif);font-weight:800;font-size:1.02rem;color:#fff;letter-spacing:-.02em;white-space:nowrap}
-.brand i{font-style:normal;color:var(--gold)}
-.trust{display:none;gap:1.1rem;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:#93A0B4;font-weight:700}
-@media(min-width:860px){.trust{display:flex}}
-.bar .tel{color:#fff;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap}
-.prog{position:absolute;left:0;bottom:-1px;height:2px;background:var(--gold);width:0}
+.bar{background:var(--navy);border-bottom:1px solid var(--line-d)}
+.bar-in{max-width:1080px;margin:0 auto;padding:.7rem var(--pad);display:flex;align-items:center;
+  justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.bar img{height:30px;width:auto}
+.trust{display:none;gap:1.15rem;font-family:var(--cond);font-size:.78rem;letter-spacing:.16em;
+  text-transform:uppercase;color:#93A0B4;font-weight:600}
+@media(min-width:780px){.trust{display:flex}}
 
-/* ---- hero ---- */
-.hero{padding-block:clamp(2.2rem,6vw,4rem)}
-.hero .stars{color:var(--gold);font-size:1.35rem;letter-spacing:.12em}
-.vidwrap{position:relative;border:3px solid var(--gold);border-radius:var(--r);overflow:hidden;background:#000}
-.vidwrap video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-.logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1rem 2rem;opacity:.8}
-.logos span{font-family:var(--serif);font-weight:700;font-size:1rem;color:#93A0B4}
+/* ---- video player (demo.scalingsos.com pattern) ---- */
+.player{position:relative;border:3px solid var(--gold);border-radius:var(--r);overflow:hidden;
+  background:#000;cursor:pointer;line-height:0}
+.player video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.loadbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.18)}
+.lfill{height:100%;width:0;background:var(--gold);transition:width .25s linear}
+.tap-sound{position:absolute;top:.7rem;right:.7rem;display:flex;align-items:center;gap:.4rem;
+  background:rgba(10,21,37,.82);color:#fff;font-family:var(--sans);font-size:.8rem;font-weight:600;
+  padding:.42rem .7rem;border-radius:999px;line-height:1;backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.22)}
+.tap-sound svg{width:15px;height:15px;flex:none}
+.tap-sound.gone{display:none}
+.bigplay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(10,21,37,.26)}
+.bigplay i{width:64px;height:64px;border-radius:50%;background:var(--gold);display:grid;place-items:center;
+  box-shadow:0 8px 26px rgba(0,0,0,.35)}
+.bigplay i:after{content:"";border-left:18px solid #0A1525;border-top:11px solid transparent;
+  border-bottom:11px solid transparent;margin-left:5px}
+.player.playing .bigplay{display:none}
 
 /* ---- steps ---- */
 .steps{display:grid;gap:.9rem;counter-reset:st}
-@media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.3rem;display:grid;gap:.5rem;align-content:start}
-.step .n{counter-increment:st;font-family:var(--stat);font-weight:800;font-size:1.5rem;color:var(--gold);line-height:1}
+@media(min-width:780px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem;
+  display:grid;gap:.45rem;align-content:start}
+.step .n{counter-increment:st;font-family:var(--stat);font-weight:700;font-size:1.45rem;color:var(--gold);line-height:1}
 .step .n:before{content:counter(st)}
-.step p{font-size:.95rem;color:var(--ink2)}
+.step p{font-size:.94rem;color:var(--ink2)}
 
-/* ---- quote block ---- */
-.quote{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r);
-  padding:clamp(1.3rem,4vw,2.1rem);position:relative}
-.quote:before{content:"\201C";position:absolute;top:.1em;left:.35em;font-family:var(--serif);font-size:4.5rem;
-  color:var(--gold);opacity:.28;line-height:1}
-.quote .qi{position:relative;display:grid;gap:.9rem}
-.quote p{font-style:italic;font-size:1.02rem;color:var(--ink2);max-width:60ch}
-.quote .by{font-weight:900;font-size:.95rem;color:var(--ink);font-style:normal}
+/* ---- question decks: 2 columns ---- */
+.qgrid{display:grid;gap:1rem}
+@media(min-width:840px){.qgrid{grid-template-columns:1fr 1fr}}
+.deck{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 26px -20px rgba(15,30,53,.45)}
+.slides{display:flex;transition:transform .42s cubic-bezier(.16,1,.3,1);flex:1}
+.slide{flex:0 0 100%;min-width:100%;padding:clamp(1.25rem,3.6vw,1.8rem);display:grid;gap:.75rem;
+  align-content:center;min-height:296px}
+.slide.q{background:var(--navy)}
+.slide.q .big{color:#fff}
+.slide.q p{color:#B9C2D0}
+.slide .big{font-family:var(--serif);font-weight:800;font-size:clamp(1.2rem,3vw,1.6rem);
+  line-height:1.16;letter-spacing:-.02em;max-width:20ch}
+.slide p{font-size:.96rem;color:var(--ink2);max-width:42ch}
+.slide .pop{color:var(--gold)}
+.slide img,.slide .sv{border-radius:6px;border:1px solid var(--line);background:#fff;
+  width:100%;max-height:186px;object-fit:contain}
+.deck-bar{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.6rem .75rem;
+  border-top:1px solid var(--line);background:var(--cream)}
+.dots{display:flex;gap:.3rem;flex-wrap:wrap}
+.dot{width:6px;height:6px;border-radius:50%;background:#CFC7B6;border:0;cursor:pointer;transition:.2s}
+.dot[aria-current="true"]{background:var(--gold);width:17px;border-radius:999px}
+.arrows{display:flex;gap:.35rem}
+.arw{width:1.85rem;height:1.85rem;border-radius:50%;border:1px solid var(--line);background:#fff;
+  cursor:pointer;display:grid;place-items:center;font-size:.85rem;color:var(--ink);font-family:inherit}
+.arw:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
+.arw:disabled{opacity:.3;cursor:default}
+.ct{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
 
-/* ---- how it works math ---- */
-.math{display:grid;gap:1rem;align-items:start}
-@media(min-width:780px){.math{grid-template-columns:1fr auto 1fr auto 1fr;gap:1.2rem}}
-.mcell{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.2rem,3.4vw,1.7rem);display:grid;gap:.5rem}
-.mcell .fig{font-family:var(--stat);font-weight:800;font-size:clamp(1.9rem,5.4vw,2.5rem);line-height:1;color:var(--navy);letter-spacing:-.03em}
-.mcell .lbl{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold)}
-.mcell p{font-size:.93rem;color:var(--ink2)}
+/* ---- how it works ---- */
+.math{display:grid;gap:1rem;align-items:stretch}
+@media(min-width:820px){.math{grid-template-columns:1fr auto 1fr auto 1fr;gap:1.1rem}}
+.mcell{background:var(--white);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(1.2rem,3.2vw,1.7rem);display:grid;gap:.45rem;align-content:start}
+.mcell .fig{font-family:var(--stat);font-weight:700;font-size:clamp(2.1rem,6vw,2.9rem);line-height:1;
+  color:var(--navy);letter-spacing:-.02em}
+.mcell .lbl{font-family:var(--cond);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:var(--gold)}
+.mcell p{font-size:.92rem;color:var(--ink2)}
 .mcell.out{background:var(--navy);border-color:var(--navy)}
 .mcell.out .fig{color:var(--gold-l)}.mcell.out p{color:#B9C2D0}
-.op{display:grid;place-items:center;font-family:var(--serif);font-size:1.8rem;color:var(--gold);font-weight:800;padding-block:.3rem}
+.op{display:grid;place-items:center;font-family:var(--stat);font-size:1.7rem;color:var(--gold);font-weight:600}
 
-/* ---- sticky note ---- */
-.note{background:#F7DE7E;color:#2A2206;padding:clamp(1.3rem,4vw,1.9rem);border-radius:2px;
-  box-shadow:0 14px 30px -14px rgba(0,0,0,.4);transform:rotate(-1.4deg);max-width:420px;margin-inline:auto;
-  display:grid;gap:.6rem;font-family:var(--hand)}
-.note .h{font-family:var(--hand);font-weight:700;font-size:1.5rem;line-height:1.25}
-.note p{font-family:var(--sans);font-size:.98rem;color:#41360C;max-width:none}
-.note .sig{font-family:var(--hand);font-size:1.3rem;padding-top:.3rem}
+/* ---- the work ---- */
+.bagrid{display:grid;gap:.9rem}
+@media(min-width:680px){.bagrid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.bagrid{grid-template-columns:repeat(3,1fr)}}
+.bacard{background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  box-shadow:0 10px 24px -18px rgba(15,30,53,.4)}
 
-/* ---- question modules ---- */
-.mods{display:grid;gap:.6rem}
-.mod{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.mod>summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:.85rem;
-  align-items:center;padding:1.05rem clamp(.95rem,3vw,1.3rem);font-weight:700;font-size:1.01rem}
-.mod>summary::-webkit-details-marker{display:none}
-.mod .qn{font-family:var(--stat);font-weight:800;font-size:1rem;color:var(--gold);min-width:1.4rem}
-.mod .chev{width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
-  transform:rotate(45deg);transition:transform .25s}
-.mod[open] .chev{transform:rotate(-135deg)}
-.mod[open]>summary{background:var(--cream);border-bottom:1px solid var(--line)}
-.mod .pane{padding:clamp(.9rem,3vw,1.25rem)}
-
-/* ---- slideshow ---- */
-.deck{position:relative;background:var(--cream);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.slides{display:flex;transition:transform .42s cubic-bezier(.16,1,.3,1)}
-.slide{flex:0 0 100%;min-width:100%;padding:clamp(1.3rem,4.2vw,2.2rem);display:grid;gap:.85rem;align-content:center;min-height:210px}
-.slide .big{font-family:var(--serif);font-weight:800;font-size:clamp(1.3rem,3.7vw,1.85rem);line-height:1.15;
-  letter-spacing:-.02em;max-width:22ch}
-.slide p{font-size:.99rem;color:var(--ink2);max-width:48ch}
-.slide .pop{color:var(--gold)}
-.slide img,.slide video{border-radius:6px;border:1px solid var(--line);background:#fff;max-height:250px;object-fit:contain;width:100%}
-.slide.media{grid-template-columns:1fr}
-@media(min-width:640px){.slide.media{grid-template-columns:1.02fr .98fr;align-items:center;gap:1.2rem}}
-.deck-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.65rem .8rem;border-top:1px solid var(--line);background:#fff}
-.dots{display:flex;gap:.32rem}
-.dot{width:6px;height:6px;border-radius:50%;background:#CFC7B6;border:0;padding:0;cursor:pointer;transition:.2s}
-.dot[aria-current="true"]{background:var(--gold);width:18px;border-radius:999px}
-.arrows{display:flex;gap:.35rem}
-.arw{width:1.9rem;height:1.9rem;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;
-  display:grid;place-items:center;font-size:.88rem;color:var(--ink);font-family:inherit;transition:.18s}
-.arw:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
-.arw:disabled{opacity:.32;cursor:default}
-.ct{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
-
-/* ---- case study ---- */
-.case{display:grid;gap:1.4rem}
-@media(min-width:880px){.case{grid-template-columns:1fr 1.15fr;align-items:center}}
-.beforeafter{display:grid;gap:.6rem}
-.ba{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line-d)}
-.ba img{width:100%}
-.ba .lbl{position:absolute;right:.5rem;top:.5rem;background:var(--red);color:#fff;font-size:.64rem;font-weight:900;
-  letter-spacing:.14em;padding:.24rem .5rem;border-radius:3px}
-.ba .lbl.aft{background:var(--green)}
-.statrow{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-d);padding-top:1.4rem;margin-top:1.4rem}
-.statrow .fig{font-family:var(--stat);font-weight:800;font-size:clamp(1.4rem,4.4vw,2rem);color:var(--gold-l);line-height:1}
-.statrow .lbl{font-size:.8rem;color:#93A0B4;margin-top:.35rem}
-
-/* ---- testimonial rail ---- */
-.rail{display:grid;grid-auto-flow:column;grid-auto-columns:66%;gap:.8rem;overflow-x:auto;scroll-snap-type:x mandatory;
-  margin-inline:calc(var(--pad)*-1);padding:0 var(--pad) .5rem;scrollbar-width:none}
+/* ---- in their words ---- */
+.reels{display:grid;gap:1rem}
+@media(min-width:820px){.reels{grid-template-columns:1fr 1fr}}
+.reel{background:var(--navy-2);border:2px solid var(--gold);border-radius:var(--r);overflow:hidden}
+.reel video{width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
+.reel .meta{padding:.85rem 1rem;color:#B9C2D0;font-size:.88rem}
+.reel .meta b{display:block;font-family:var(--serif);color:#fff;font-weight:800;font-size:1.02rem;margin-bottom:.1rem}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:64%;gap:.8rem;overflow-x:auto;
+  scroll-snap-type:x mandatory;margin-inline:calc(var(--pad)*-1);padding:0 var(--pad) .4rem;scrollbar-width:none}
 .rail::-webkit-scrollbar{display:none}
 @media(min-width:760px){.rail{grid-auto-columns:minmax(0,1fr);overflow:visible;margin-inline:0;padding-inline:0}}
 .rail>*{scroll-snap-align:start}
-.vtall{background:#000;border:2px solid var(--gold);border-radius:var(--r);overflow:hidden}
+.vtall{background:var(--navy-2);border:2px solid var(--gold);border-radius:var(--r);overflow:hidden}
 .vtall video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
-.vtall .meta{padding:.75rem .9rem;background:var(--navy);color:#B9C2D0;font-size:.85rem}
-.vtall .meta b{display:block;color:#fff;font-weight:900;font-size:.94rem;margin-bottom:.08rem;font-family:var(--serif)}
+.vtall .meta{padding:.7rem .85rem;color:#B9C2D0;font-size:.83rem}
+.vtall .meta b{display:block;font-family:var(--serif);color:#fff;font-weight:800;font-size:.95rem}
 
+/* ---- what to expect ---- */
 .agenda{display:grid;gap:.6rem}
-.ag{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.3rem;display:grid;
-  grid-template-columns:auto 1fr;gap:1rem;align-items:baseline}
-.ag .n{font-family:var(--stat);font-weight:800;color:var(--gold);font-size:1.1rem}
-.ag b{font-weight:900;display:block;margin-bottom:.15rem}
-.ag span{color:var(--ink2);font-size:.96rem}
+.ag{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1.05rem 1.25rem;
+  display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:baseline}
+.ag .n{font-family:var(--stat);font-weight:700;color:var(--gold);font-size:1.15rem}
+.ag b{display:block;margin-bottom:.12rem;font-weight:700}
+.ag .d{color:var(--ink2);font-size:.95rem}
 
+/* ---- pricing + note ---- */
+.pricebox{background:var(--white);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(1.6rem,5vw,2.6rem) clamp(1.4rem,4vw,2.2rem) clamp(2.6rem,6vw,3.4rem);
+  text-align:center;max-width:430px;margin-inline:auto;box-shadow:0 14px 34px -24px rgba(15,30,53,.5)}
+.pricebox .lbl{font-family:var(--cond);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:700}
+.pricebox .fig{font-family:var(--serif);font-weight:900;font-size:clamp(2.3rem,7.6vw,3.3rem);
+  line-height:1;letter-spacing:-.03em;margin:.5rem 0 .8rem;white-space:nowrap}
+.pricebox .terms{font-family:var(--cond);font-size:1.02rem;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:600;color:var(--ink2);line-height:1.85}
+.note{background:#F7DE7E;color:#2A2206;padding:clamp(1.3rem,4vw,1.8rem);border-radius:2px;
+  box-shadow:0 16px 32px -16px rgba(0,0,0,.42);transform:rotate(-1.6deg);max-width:392px;
+  margin:-2.1rem auto 0;display:grid;gap:.8rem;position:relative;z-index:2}
+.note p{font-family:var(--hand);font-size:1.14rem;line-height:1.45;color:#2A2206;max-width:none}
+.note .sig{font-family:var(--hand);font-size:1.26rem;font-weight:700}
 
-.bagrid{display:grid;gap:.9rem}
-@media(min-width:700px){.bagrid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.bagrid{grid-template-columns:repeat(3,1fr)}}
-.bacard{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
-  box-shadow:0 10px 24px -18px rgba(15,30,53,.4)}
-.bacard img{width:100%;display:block}
-footer{background:var(--navy);color:#93A0B4;padding-block:2.4rem;text-align:center;font-size:.88rem}
-footer a{color:#fff;font-weight:700;text-decoration:none}
-footer .stars{color:var(--gold);letter-spacing:.1em;display:block;margin-bottom:.6rem}
+footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:center;font-size:.86rem}
+footer img{height:26px;margin:0 auto .7rem;opacity:.9}
 .rv{opacity:0;transform:translateY(16px)}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}
-  html{scroll-behavior:auto}.slides{transition:none}}
+  html{scroll-behavior:auto}.slides{transition:none}.lfill{transition:none}}
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div class="bar-in">
-    <div class="brand">Solid Booked<i>.</i></div>
+    <img src="assets/img/logo.png" alt="Solid Booked Pro">
     <div class="trust"><span>One payment</span><span>No contract</span><span>You own it</span><span>Money-back guarantee</span></div>
-    <a class="tel" href="tel:+16784040309">678-404-0309</a>
   </div>
-  <div class="prog" id="prog"></div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="dark hero">
+<!-- ===== MAIN VIDEO ===== -->
+<section class="dark" style="padding-block:clamp(2rem,5.5vw,3.6rem)">
   <div class="wrap narrow center stack g3">
     <div class="stack g2">
       <p class="eyebrow">Your call is booked</p>
       <h1>You've booked your call.<br><span class="ul">Great work<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3 8 C48 2, 96 10, 197 4"/></svg></span>.</h1>
-      <p class="lede" style="color:#B9C2D0">Watch the video below for what happens next, then get any question answered before we ever speak. Nothing here needs a phone call.</p>
-      <div class="stars">★★★★★</div>
+      <p class="lede" style="color:#B9C2D0">Watch the video below for what happens next, then get any question answered before we speak.</p>
     </div>
-    <div class="vidwrap rv">
-      <video controls preload="none" playsinline poster="assets/img/poster-tof-intro.jpg" data-vid="walkthrough">
+    <div class="player paused" id="player">
+      <video id="v" playsinline preload="auto" autoplay muted loop
+        poster="assets/img/poster-tof-intro.jpg" data-vid="walkthrough">
         <source src="assets/video/tof-intro.mp4" type="video/mp4"></video>
+      <div class="loadbar"><div class="lfill" id="lfill"></div></div>
+      <div class="tap-sound" id="tapSound">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+          <path d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
+        Enable sound
+      </div>
+      <div class="bigplay" id="bigplay"><i></i></div>
     </div>
-    <p class="small" style="color:#93A0B4">The site is already built. On the call you're looking at it, not at slides.</p>
   </div>
 </section>
 
-<!-- ============ STEPS ============ -->
+<!-- ===== BEFORE WE TALK ===== -->
 <section class="band" style="padding-block:clamp(2.2rem,5.5vw,3.4rem)">
   <div class="wrap stack g3">
     <div class="center"><p class="eyebrow">Before we talk</p></div>
     <div class="steps">
-      <article class="step rv"><span class="n"></span><h3>Add it to your calendar</h3><p>Use the link in your confirmation email. If it landed in spam, mark it "not spam" so the reminders actually reach you.</p></article>
-      <article class="step rv"><span class="n"></span><h3>Watch the video above</h3><p>Three minutes. It covers what we built, what it costs, and what happens if it doesn't work.</p></article>
-      <article class="step rv"><span class="n"></span><h3>Open any question below</h3><p>Cost, ownership, timelines. Open the ones you care about and ignore the rest.</p></article>
+      <article class="step rv"><span class="n"></span><h3>Add it to your calendar</h3><p>Use the link in your confirmation email. If it landed in spam, mark it "not spam" so the reminders reach you.</p></article>
+      <article class="step rv"><span class="n"></span><h3>Watch the video above</h3><p>It covers what we built, what it costs, and what happens if it does not work.</p></article>
+      <article class="step rv"><span class="n"></span><h3>Tap through the questions</h3><p>Cost, ownership, timelines. Open the ones you care about and ignore the rest.</p></article>
     </div>
   </div>
 </section>
 
-<!-- ============ HOW IT WORKS ============ -->
+<!-- ===== QUESTIONS ===== -->
 <section>
-  <div class="wrap stack g4">
+  <div class="wrap stack g3">
+    <div class="narrow center stack g2">
+      <p class="eyebrow rv">Answers</p>
+      <h2 class="rv">Get answers to our most common questions</h2>
+    </div>
+    <div class="qgrid rv">
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">What's the price?</div><p>And is there anything else waiting for us later?</p></div>
+        <div class="slide"><div class="big">One payment.<br><span class="pop">$297 to $997.</span></div><p>Where it lands depends on how much there is to build. That is the whole cost.</p></div>
+        <div class="slide"><div class="big">Almost everything sold to you is monthly.</div><p>A retainer, a subscription, a management fee. The kind of thing you forget you are paying until you go looking. This is not that.</p></div>
+        <div class="slide"><div class="big">Nothing renews.</div><p>No contract. No setup fee. Nothing to cancel, because nothing is running.</p></div>
+        <div class="slide"><div class="big">Then we watch it for a year.</div><p>Not bill you for the year. Watch it. If something is not pulling its weight, that is our problem to fix, and you have already paid whatever you are going to pay.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">How fast will we see anything?</div><p>Straight answer, including the part you will not love.</p></div>
+        <div class="slide"><div class="big">Reviews move first.</div><p>That is usually the first thing you notice, inside the first few weeks.</p></div>
+        <div class="slide"><div class="big">More reviews means more customers see you.</div>
+          <video class="sv" autoplay muted loop playsinline preload="none" poster="assets/img/poster-rank-climb.jpg"><source src="assets/video/rank-climb.mp4" type="video/mp4"></video></div>
+        <div class="slide"><div class="big">The slow part is coming up on your own in a search.</div><p>That takes time. Anybody who tells you different is guessing or lying to you.</p></div>
+        <div class="slide"><div class="big">So it's built around that gap.</div><p>Reviews and traffic carry the first stretch so you see a return immediately, while the slow part builds underneath it.</p></div>
+        <div class="slide"><div class="big"><span class="pop">45 days.</span><br>Something real you can point at.</div><p>More reviews than you had. New customer calls you can trace back to it. If nothing has moved by then, ask us hard questions.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">Who owns the site and the domain?</div><p>And what happens the day we walk away?</p></div>
+        <div class="slide"><div class="big">An owner was asked for <span class="pop">$2,000</span> to get his own domain back.</div><p>The domain itself costs about ten dollars. He had been paying that company for years, and they had been holding the keys the whole time.</p></div>
+        <div class="slide"><div class="big">Yours. In your name.</div><p>Built on your domain, registered to you. Not licensed, not rented, not sitting in our account.</p></div>
+        <div class="slide"><div class="big">You keep the reviews and the customers.</div><p>The reviews live on your Google page, they were always yours. Anybody who found you through the site is your customer.</p></div>
+        <div class="slide"><div class="big">Ask the next person who calls you the same question.</div><p>Who owns the domain, and will you put that in writing. You will learn a lot from how long it takes them to answer.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">Why now and not in two years?</div><p>Two things changed. Both worth thirty seconds.</p></div>
+        <div class="slide"><div class="big">You can't scroll past page one anymore.</div>
+          <video class="sv" autoplay muted loop playsinline preload="none" poster="assets/img/poster-google-scroll.jpg"><source src="assets/video/google-scroll.mp4" type="video/mp4"></video></div>
+        <div class="slide"><div class="big">Google now has a button that just gets prices.</div>
+          <img src="assets/img/ai-get-prices.webp" alt="A Google result with a Have AI get prices button" loading="lazy"></div>
+        <div class="slide"><div class="big">Everybody is bidding for those top spots.</div><p>And the price of standing there goes up every year. That is a crowded room, and it costs more to be in it every time you look.</p></div>
+        <div class="slide"><div class="big">But 1 in 4 are asking somewhere else.</div>
+          <img src="assets/img/google-vs-chatgpt.png" alt="The same search asked on Google and on ChatGPT" loading="lazy"></div>
+        <div class="slide"><div class="big">Only 1.2% of business sites come up there.</div><p>That is a room with nobody in it. It will not stay that way. The same thing happened with Google fifteen years ago, and now it costs what it costs.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">Where does a lead actually go?</div><p>An owner looked at his own site and had no idea.</p></div>
+        <div class="slide"><div class="big">A few questions, not a blank box.</div>
+          <img src="assets/img/multi-form.gif" alt="A short multi step form" loading="lazy"></div>
+        <div class="slide"><div class="big">Your phone buzzes.</div><p>A text with their name, their number, and what they said they need. Same as if they had texted you directly.</p></div>
+        <div class="slide"><div class="big">On a job? They still get an answer.</div>
+          <img src="assets/img/review-followup.png" alt="An automated follow up message" loading="lazy"></div>
+        <div class="slide"><div class="big">Nothing sits in a dashboard waiting for you.</div>
+          <img src="assets/img/plate-contacts.png" alt="A contact list showing every enquiry and its status" loading="lazy"></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">What results can we actually expect?</div><p>Here is what we will not promise you.</p></div>
+        <div class="slide"><div class="big">Not the top spot on Google.</div><p>Nobody can promise that. Google decides it, it moves constantly, and anyone telling you different is either guessing or counting on you not knowing.</p></div>
+        <div class="slide"><div class="big">Not that you'll close them.</div><p>That is your end, and you are better at it than we are. We can get somebody to raise their hand. We cannot make them sign.</p></div>
+        <div class="slide"><div class="big">Not if nobody picks up.</div><p>We can send people and keep talking to the ones who are not ready. If the phone rings out, none of the rest matters.</p></div>
+        <div class="slide"><div class="big">One thing we will promise.<br><span class="pop">5 qualified prospects a month.</span></div><p>An average across the first year. If it comes up short, you get your money back, and you keep the site and the reviews.</p></div>
+        <div class="slide"><div class="big">Qualified means all three.</div><p>They came looking for you, not a lead sold to four other businesses. They need what you actually do. They are inside your service area.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">Business is good. Why bother?</div><p>Word of mouth is the best way there is to get work.</p></div>
+        <div class="slide"><div class="big">We're not going to talk you out of it.</div><p>The people who come that way already trust you. They do not haggle much. They are good customers.</p></div>
+        <div class="slide"><div class="big">The only thing is you can't turn it up when you want to.</div><p>Most weeks that is fine. You are busy enough. Then every so often it goes quiet, and that is the part nobody plans for.</p></div>
+        <div class="slide"><div class="big">That's when the wrong calls start sounding reasonable.</div><p>The lead company. The SEO guy. The agency with the three month contract. Nobody shops carefully when they are thinking about next month.</p></div>
+        <div class="slide"><div class="big">Busy is the only time you can build this.</div><p>Nothing here shows up tomorrow. Whatever you want working in a slow month has to be started in a good one.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">We tried this before and it didn't work</div><p>An owner spent $12,000 over three months with an SEO company.</p></div>
+        <div class="slide"><div class="big">What he got was <span class="pop">tire kickers.</span></div><p>He was not scammed, though. He bought a real thing. It just solved a problem he did not have.</p></div>
+        <div class="slide"><div class="big">Lead companies</div><p>You pay less than a lead is worth, so they sell that same one to four or five others. By the time you call, the person has talked to three people and is irritated the phone rang again.</p></div>
+        <div class="slide"><div class="big">Only two kinds of business win there.</div><p>The ones with somebody paid to sit and dial the second a lead lands, and the ones who keep calling long after everyone else quit.</p></div>
+        <div class="slide"><div class="big">SEO brings the best person there is. The catch is the clock.</div><p>You pay every month for something you might see in six. And a report does not cover payroll.</p></div>
+        <div class="slide"><div class="big">None of those are bad businesses.</div><p>They are answers to a question you were not asking.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">We're not technical. How much lands on us?</div><p>Short answer: none of it.</p></div>
+        <div class="slide"><div class="big">You don't have to understand any of this.</div><p>Not the domain, not the hosting, not why one page comes up in a search and another does not. That is the job you are paying for.</p></div>
+        <div class="slide"><div class="big">Nothing to log into.</div><p>No dashboard. No password to keep somewhere. No tool to learn.</p></div>
+        <div class="slide"><div class="big">Want something changed? You tell us.</div>
+          <img src="assets/img/site-service-pages.png" alt="A service page from a finished site" loading="lazy"></div>
+        <div class="slide"><div class="big">One owner put it best.</div><p>"I don't know nothing, that's why I'm calling you." That is the right answer. It is the whole reason the job exists.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">Why did you build it before asking us for anything?</div><p>You probably noticed this is backwards.</p></div>
+        <div class="slide"><div class="big">Not because we're generous.</div><p>If we describe a website to you, you have to take our word for it. You have probably taken somebody's word for it before and it cost you.</p></div>
+        <div class="slide"><div class="big">Looking at the real thing, there's nothing to take our word for.</div>
+          <img src="assets/img/site-roofing-mobile.png" alt="A finished site on a phone" loading="lazy"></div>
+        <div class="slide"><div class="big">You can tell us it's wrong.</div><p>That we got your services wrong, or the colours are ugly, or that is not even what you do anymore. That is a better use of an hour than us talking at you.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">Who does this not work for?</div><p>It will save us both an hour if one of these is you.</p></div>
+        <div class="slide"><div class="big">It works best if three things are true.</div><p>You do good work. You have helped enough people recently for there to be something to work with. And you have room to take more on.</p></div>
+        <div class="slide"><div class="big">Too new to have that history?</div><p>Nothing wrong with being new. There is just nothing for us to pull on yet.</p></div>
+        <div class="slide"><div class="big">Need this to save the business?</div><p>If it is the last thing you are trying, the timing is wrong. This works as something you build while you are steady, not as a rescue.</p></div>
+        <div class="slide"><div class="big">Only question is who's cheapest?</div><p>We are not, and we are not trying to be.</p></div>
+      </div></div>
+
+      <div class="deck" data-deck><div class="slides">
+        <div class="slide q"><div class="big">What happens after we say yes?</div><p>Day one, day two, and the first week.</p></div>
+        <div class="slide"><div class="big">Day one.<br>You look at it.</div><p>You get a link to the site and mark anything you want changed. Nothing to set up, no password to keep track of.</p></div>
+        <div class="slide"><div class="big">Day two.<br>Reviews start.</div>
+          <img src="assets/img/review-request.png" alt="A review request message" loading="lazy"></div>
+        <div class="slide"><div class="big">Inside the first week.</div><p>We get you set up to show up when people search, including the AI ones, and the traffic starts coming your way.</p></div>
+        <div class="slide"><div class="big">What we need from you is one thing.</div><p>The customers you have already worked with, so we can ask them how it went. No calls to sit in on, nothing to check every week.</p></div>
+      </div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="band">
+  <div class="wrap stack g3">
     <div class="narrow center stack g2">
       <p class="eyebrow rv">How it works</p>
       <h2 class="rv">The <span class="gold">5-Star Referral System</span></h2>
-      <p class="lede rv">Your customers already like you. Almost none of them ever say so publicly, and almost none of the people who enquire ever hear from you twice. Here's the math on fixing both.</p>
+      <p class="lede rv">How are we able to generate <span class="ul">12x more reviews<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3 8 C52 3, 104 10, 197 4"/></svg></span> than the leading software? Here's the math:</p>
     </div>
-
     <div class="math rv">
-      <div class="mcell">
-        <span class="lbl">Every customer asked</span>
-        <div class="fig">50-70%</div>
-        <p>leave a review when the ask is automatic and personalised. Most owners never ask at all, because asking feels awkward.</p>
-      </div>
+      <div class="mcell"><div class="fig">4x</div><span class="lbl">More opportunities</span>
+        <p>Every finished job triggers a personalised ask automatically. Most owners never ask at all, because asking feels awkward. That alone is four times the review opportunities of asking by hand.</p></div>
       <div class="op">&times;</div>
-      <div class="mcell">
-        <span class="lbl">Every enquiry followed up</span>
-        <div class="fig">5 in 5</div>
-        <p>instead of the 1 in 5 who happened to be ready that day. The other four aren't saying no. They got busy and meant to call back.</p>
-      </div>
+      <div class="mcell"><div class="fig">3x</div><span class="lbl">Better conversion</span>
+        <p>Between 50 and 70% of customers actually leave one, because the ask is personal and timed to the job rather than a generic blast weeks later.</p></div>
       <div class="op">=</div>
-      <div class="mcell out">
-        <span class="lbl">The result</span>
-        <div class="fig">You come up first</div>
-        <p>More reviews lifts where you rank. Ranking higher brings more enquiries. Following all of them up turns more of those into work.</p>
-      </div>
-    </div>
-
-    <div class="narrow rv">
-      <figure style="margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/poster-rank-climb.jpg" style="width:100%">
-          <source src="assets/video/rank-climb.mp4" type="video/mp4"></video>
-      </figure>
+      <div class="mcell out"><div class="fig">12x</div><span class="lbl">The result</span>
+        <p>More reviews lifts where you rank. Ranking higher brings more enquiries. Following every one of them up turns more of those into work.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ QUESTIONS ============ -->
-<section class="band">
-  <div class="wrap narrow stack g3">
-    <div class="center stack g2">
-      <p class="eyebrow rv">Answers</p>
-      <h2 class="rv">Get answers to our most common questions</h2>
-      <p class="lede rv">Ordered by how often they actually come up. Tap any one.</p>
-    </div>
-
-    <div class="mods rv">
-
-      <details class="mod" open><summary><span class="qn">01</span><span>What does it actually cost?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">One payment.<br><span class="pop">$297 to $997.</span></div><p>Where it lands depends on how much there is to build. That is the whole cost.</p></div>
-          <div class="slide"><div class="big">Almost everything sold to you is monthly.</div><p>A retainer, a subscription, a management fee. The kind of thing you forget you are paying until you go looking. This is not that.</p></div>
-          <div class="slide"><div class="big">Not per month.<br>Not per year.</div><p>Nothing renews. No contract, no setup fee, nothing to cancel because nothing is running.</p></div>
-          <div class="slide"><div class="big">Then we watch it for a year.</div><p>Not bill you for the year. Watch it. If something is not pulling its weight, that is our problem to go fix, and you have already paid whatever you are going to pay.</p></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">02</span><span>How fast will I see anything?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">Straight answer, including the part you won't love.</div><p>Reviews move first. That is usually the first thing you notice, inside the first few weeks.</p></div>
-          <div class="slide media"><div><div class="big">More reviews means more customers see you.</div><p>As the reviews come in, you climb. That is the part that compounds while you are not thinking about it.</p></div>
-            <video autoplay muted loop playsinline preload="none" poster="assets/img/poster-rank-climb.jpg"><source src="assets/video/rank-climb.mp4" type="video/mp4"></video></div>
-          <div class="slide"><div class="big">The people we send start right away.</div><p>That is the whole reason we run them. The slow part is coming up on your own when somebody searches, and that takes time. Anybody who tells you different is guessing or lying to you.</p></div>
-          <div class="slide"><div class="big">So it is built around that gap.</div><p>Reviews and traffic carry the first stretch so you see a return immediately, while the slow part builds underneath it.</p></div>
-          <div class="slide"><div class="big"><span class="pop">45 days.</span><br>Something real you can point at.</div><p>More reviews than you had. New customer calls you can trace back to it. Once we have your feedback and approval, that is it. Nothing to learn, nothing to check every week.</p></div>
-          <div class="slide media"><div><div class="big">If nothing has moved in 45 days, ask me hard questions.</div><p>I would rather you do that than wait politely for six months.</p></div>
-            <video controls preload="none" playsinline poster="assets/img/poster-review-older.jpg" data-vid="review-older"><source src="assets/video/review-older.mp4" type="video/mp4"></video></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">03</span><span>Who owns the site and the domain?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">An owner was asked for <span class="pop">$2,000</span> to get his own domain back.</div><p>The domain itself costs about ten dollars. He had been paying that company for years, and they had been holding the keys the whole time.</p></div>
-          <div class="slide"><div class="big">Yours. In your name.</div><p>Built on your domain, registered to you. Not licensed, not rented, not sitting in our account.</p></div>
-          <div class="slide"><div class="big">You keep the reviews. You keep the customers.</div><p>The reviews live on your Google page, they were always yours. Anybody who found you through the site is your customer, and they do not know we exist.</p></div>
-          <div class="slide"><div class="big">Ask the next person who calls you the same question.</div><p>Who owns the domain, and will you put that in writing. You will learn a lot from how long it takes them to answer.</p></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">04</span><span>I'm not technical. How much lands on me?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">You don't have to understand any of this.</div><p>Not the domain, not the hosting, not why one page comes up in a search and another does not. That is the job you are paying for.</p></div>
-          <div class="slide"><div class="big">Nothing to log into.</div><p>No dashboard. No password to keep somewhere. No tool to learn.</p></div>
-          <div class="slide media"><div><div class="big">Want something changed? You tell us.</div><p>A service, a price, a photo. You say it, we change it. You do not do it.</p></div>
-            <img src="assets/img/site-service-pages.png" alt="A service page from a finished site" loading="lazy"></div>
-          <div class="slide media"><div><div class="big">Everything a customer needs is one tap away.</div><p>The menu follows them down the page and your number is always on screen. They never have to hunt, and you never have to think about it.</p></div>
-            <img src="assets/img/sticky-menu.png" alt="A site menu that stays on screen while scrolling" loading="lazy"></div>
-          <div class="slide"><div class="big">One owner put it best.</div><p>"I don't know nothing, that's why I'm calling you." That is the right answer. It is the whole reason the job exists.</p></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">05</span><span>Where does a lead actually go?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">An owner looked at his own site and had no idea where the form went.</div><p>He thought it probably went to the company that built it. He had been paying for that site for years.</p></div>
-          <div class="slide media"><div><div class="big">A few questions, not a blank box.</div><p>Most sites ask a stranger to compose a message in an empty box. Most will not. They close the tab and you never knew they were there.</p></div>
-            <img src="assets/img/multi-form.gif" alt="A short multi step form" loading="lazy"></div>
-          <div class="slide"><div class="big">Your phone buzzes.</div><p>A text with their name, their number, and what they said they need. Same as if they had texted you directly.</p></div>
-          <div class="slide media"><div><div class="big">On a job? They still get an answer.</div><p>Not a "thanks for reaching out." A real answer, and a question back. It keeps going until they are ready for you, then tells you they're ready.</p></div>
-            <img src="assets/img/review-followup.png" alt="An automated follow up message" loading="lazy"></div>
-          <div class="slide media"><div><div class="big">Nothing sits in a dashboard waiting for you.</div><p>Every person who ever reached out stays in one place, with where they got to. You never have to open it. It just means nobody quietly falls through.</p></div>
-            <img src="assets/img/plate-contacts.png" alt="A contact list showing every enquiry and its follow up status" loading="lazy"></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">06</span><span>What results can I actually expect?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">Here's what I will not promise you.</div><p>Everybody who has ever sold you marketing promised you something. Usually the first page of Google.</p></div>
-          <div class="slide"><div class="big">Not the top spot on Google.</div><p>Nobody can promise that. Google decides it, it moves constantly, and anyone telling you different is either guessing or counting on you not knowing.</p></div>
-          <div class="slide"><div class="big">Not that you'll close them.</div><p>That is your end, and you are better at it than we are. We can get somebody to raise their hand. We cannot make them sign.</p></div>
-          <div class="slide"><div class="big">Not if nobody picks up.</div><p>We can send people and keep talking to the ones who are not ready. If the phone rings out, none of the rest matters.</p></div>
-          <div class="slide"><div class="big">One thing I will promise.<br><span class="pop">5 qualified prospects a month.</span></div><p>An average across the first year. If it comes up short, you get your money back, and you keep the site and the reviews.</p></div>
-          <div class="slide"><div class="big">Qualified means all three.</div><p>They came looking for you, not a lead sold to four other businesses. They need what you actually do. They are inside your service area. If it does not clear all three, it does not count.</p></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">07</span><span>Business is good right now. Why bother?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">Word of mouth is the best way there is to get work.</div><p>The people who come that way already trust you. They do not haggle much. They are good customers. I am not going to talk you out of it.</p></div>
-          <div class="slide"><div class="big">The only thing is you can't turn it up when you want to.</div><p>Most weeks that is fine. You are busy enough. Then every so often it goes quiet, and that is the part nobody plans for.</p></div>
-          <div class="slide"><div class="big">That's when the wrong calls start sounding reasonable.</div><p>The lead company. The SEO guy. The agency with the three month contract. They are built for that moment, and nobody shops carefully when they are thinking about next month.</p></div>
-          <div class="slide"><div class="big">Busy is the only time you can build this.</div><p>Nothing here shows up tomorrow. Reviews take weeks and search takes months. Whatever you want working in a slow month has to be started in a good one.</p></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">08</span><span>I tried this before and it didn't work</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">An owner spent <span class="pop">$12,000</span> over three months with an SEO company.</div><p>What he got was tire kickers. He was not scammed, though. He bought a real thing. It just solved a problem he did not have.</p></div>
-          <div class="slide"><div class="big">Lead companies</div><p>You pay less than a lead is worth, so they sell that same one to four or five others. By the time you call, the person has talked to three people and is irritated the phone rang again.</p></div>
-          <div class="slide"><div class="big">Only two kinds of business win there.</div><p>The ones with somebody paid to sit and dial the second a lead lands, and the ones who keep calling long after everyone else quit. If neither is you, you are funding somebody else's operation.</p></div>
-          <div class="slide"><div class="big">SEO brings the best person there is. The catch is the clock.</div><p>You pay every month for something you might see in six. And a report does not cover payroll.</p></div>
-          <div class="slide"><div class="big">Ads work, if something catches them.</div><p>If there is nothing on the other end, you are paying to point people somewhere they bounce off. The platform gets paid either way, so it sends volume at the lowest price, not the right person.</p></div>
-          <div class="slide"><div class="big">None of those are bad businesses.</div><p>They are answers to a question you were not asking.</p></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">09</span><span>What happens after I say yes?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">Day one.<br>You look at it.</div><p>You get a link to the site and mark anything you want changed. Nothing to set up, no password to keep track of.</p></div>
-          <div class="slide media"><div><div class="big">Day two.<br>Reviews start.</div><p>Once you are happy with it, we go after more online reviews right away, starting with customers you have already worked with.</p></div>
-            <img src="assets/img/review-request.png" alt="A review request message" loading="lazy"></div>
-          <div class="slide"><div class="big">Inside the first week.</div><p>We get you set up to show up when people search, including the AI ones, and the traffic starts coming your way.</p></div>
-          <div class="slide"><div class="big">What we need from you is one thing.</div><p>The customers you have already worked with, so we can ask them how it went. No calls to sit in on, nothing to check every week.</p></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">10</span><span>Who does this not work for?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">It works best if three things are true.</div><p>You do good work. You have helped enough people recently for there to be something to work with. And you have room to take more on.</p></div>
-          <div class="slide"><div class="big">Too new to have that history?</div><p>Nothing wrong with being new. There is just nothing for us to pull on yet.</p></div>
-          <div class="slide"><div class="big">Need this to save the business?</div><p>If it is the last thing you are trying, the timing is wrong. This works as something you build while you are steady, not as a rescue.</p></div>
-          <div class="slide"><div class="big">Don't pick up the phone?</div><p>We can send you people and keep talking to the ones who are not ready. We cannot take the call for you.</p></div>
-          <div class="slide"><div class="big">Only question is who's cheapest?</div><p>We are not, and we are not trying to be.</p></div>
-        </div></div></div>
-      </details>
-
-      <details class="mod"><summary><span class="qn">11</span><span>Why did you build it before asking me for anything?</span><span class="chev"></span></summary>
-        <div class="pane"><div class="deck" data-deck><div class="slides">
-          <div class="slide"><div class="big">You probably noticed this is backwards.</div><p>Normally somebody calls, pitches you, you pay, and then you find out what you bought.</p></div>
-          <div class="slide"><div class="big">Not because we're generous.</div><p>If we describe a website to you, you have to take our word for it. You have probably taken somebody's word for it before and it cost you.</p></div>
-          <div class="slide media"><div><div class="big">Looking at the real thing, there's nothing to take our word for.</div><p>You can tell us it is wrong. That we got your services wrong, or the colours are ugly, or that is not even what you do anymore.</p></div>
-            <img src="assets/img/site-roofing-mobile.png" alt="A finished site on a phone" loading="lazy"></div>
-        </div></div></div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY NOW ============ -->
-<section class="dark">
-  <div class="wrap narrow stack g3">
-    <div class="center stack g2">
-      <p class="eyebrow rv">Why now</p>
-      <h2 class="rv">Two things changed in the last couple of years</h2>
-      <p class="lede rv" style="color:#B9C2D0">Both worth thirty seconds. Neither of them is about you.</p>
-    </div>
-    <div class="deck rv" data-deck style="background:#fff;border-color:transparent">
-      <div class="slides">
-        <div class="slide media"><div><div class="big">You can't scroll past page one anymore.</div><p>Google fills the first screen themselves. If you are not in the handful that are there, there isn't a page two to be on.</p></div>
-          <video autoplay muted loop playsinline preload="metadata" poster="assets/img/poster-google-scroll.jpg"><source src="assets/video/google-scroll.mp4" type="video/mp4"></video></div>
-        <div class="slide media"><div><div class="big">Google now has a button that just gets prices.</div><p>People don't have to search or click around anymore. That happens with or without you in the running.</p></div>
-          <img src="assets/img/ai-get-prices.webp" alt="A Google result with a Have AI get prices button" loading="lazy"></div>
-        <div class="slide"><div class="big">Everybody is bidding for those top spots.</div><p>And the price of standing there goes up every year. That is a crowded room, and it costs more to be in it every time you look.</p></div>
-        <div class="slide media"><div><div class="big">But 1 in 4 are asking somewhere else entirely.</div><p>ChatGPT and tools like it. And only 1.2% of business websites are set up to come up when they do. That is a room with nobody in it.</p></div>
-          <img src="assets/img/google-vs-chatgpt.png" alt="The same search on Google and on ChatGPT" loading="lazy"></div>
-        <div class="slide"><div class="big">It won't stay that way.</div><p>The same thing happened with Google fifteen years ago. Cheap and wide open, then everyone showed up, and now it costs what it costs. Your site is set up for both, because right now the second one is nearly free to win.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROOF ============ -->
+<!-- ===== THE WORK ===== -->
 <section>
-  <div class="wrap stack g4">
-    <div class="narrow center stack g2">
-      <p class="eyebrow rv">In their words</p>
-      <h2 class="rv">Owners who already did this</h2>
-    </div>
-    <div class="rail rv">
-      <!-- CLIENT-CALL-REELS: Deonco (4:33) and Ijeoma (4:29) cuts drop in here -->
-      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-30yr.jpg" data-vid="review-30yr"><source src="assets/video/review-30yr.mp4" type="video/mp4"></video><div class="meta"><b>Thirty years in business</b>Mostly on word of mouth.</div></article>
-      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-older.jpg" data-vid="review-older"><source src="assets/video/review-older.mp4" type="video/mp4"></video><div class="meta"><b>What changed</b>After the site went live.</div></article>
-      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-03.jpg" data-vid="review-03"><source src="assets/video/review-03.mp4" type="video/mp4"></video><div class="meta"><b>The part that surprised him</b>In his own words.</div></article>
-    </div>
-    <div class="narrow rv">
-      <div class="quote"><div class="qi">
-        <p>Most people think a website is a business card. A nice thing that sits in a drawer and does nothing. If that's what we built, I'd never put money behind it.</p>
-        <span class="by">Vince, Solid Booked Pro</span>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BEFORE / AFTER ============ -->
-<section class="band">
   <div class="wrap stack g3">
     <div class="narrow center stack g2">
       <p class="eyebrow rv">The work</p>
@@ -472,51 +394,75 @@ footer .stars{color:var(--gold);letter-spacing:.1em;display:block;margin-bottom:
       <p class="lede rv">Same business, same services, same owner. Only the first impression changed.</p>
     </div>
     <div class="bagrid rv">
-      <figure class="bacard"><img src="assets/img/ba-oma.jpg" alt="A skincare brand site before and after the rebuild" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-rebrandit.jpg" alt="A pet grooming site before and after the rebuild" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-thrst.jpg" alt="A fitness app site before and after the rebuild" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-parcelcube.jpg" alt="A logistics hardware site before and after the rebuild" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-ashley.jpg" alt="A speaker coaching site before and after the rebuild" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-eleni.jpg" alt="A hypnotherapy practice site before and after the rebuild" loading="lazy"></figure>
+      <figure class="bacard"><img src="assets/img/ba-oma.jpg" alt="A skincare brand site before and after" loading="lazy"></figure>
+      <figure class="bacard"><img src="assets/img/ba-rebrandit.jpg" alt="A pet grooming site before and after" loading="lazy"></figure>
+      <figure class="bacard"><img src="assets/img/ba-thrst.jpg" alt="A fitness app site before and after" loading="lazy"></figure>
+      <figure class="bacard"><img src="assets/img/ba-parcelcube.jpg" alt="A logistics site before and after" loading="lazy"></figure>
+      <figure class="bacard"><img src="assets/img/ba-ashley.jpg" alt="A speaker coaching site before and after" loading="lazy"></figure>
+      <figure class="bacard"><img src="assets/img/ba-eleni.jpg" alt="A hypnotherapy practice site before and after" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
-<!-- ============ OFFER NOTE ============ -->
-<section class="band">
-  <div class="wrap narrow center stack g3">
-    <p class="eyebrow rv">The guarantee</p>
-    <div class="note rv">
-      <div class="h">If it doesn't average 5 qualified prospects a month, ask for your money back.</div>
-      <p>You keep the website. You keep the reviews it collected for you. That's how sure I am it isn't a business card.</p>
-      <div class="sig">Vince</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ THE CALL ============ -->
+<!-- ===== IN THEIR WORDS ===== -->
 <section class="dark">
+  <div class="wrap stack g3">
+    <div class="narrow center stack g2">
+      <p class="eyebrow rv">In their words</p>
+      <h2 class="rv">Owners talking it through</h2>
+      <p class="lede rv" style="color:#B9C2D0">Straight from the calls. Nothing scripted.</p>
+    </div>
+    <div class="reels rv">
+      <article class="reel"><video controls preload="none" playsinline poster="assets/img/poster-reel-deonco.jpg" data-vid="reel-deonco"><source src="assets/video/reel-deonco.mp4" type="video/mp4"></video>
+        <div class="meta"><b>Deonco, Black Mold Guys</b>On the $12,000 he spent before this, and what he had been getting wrong.</div></article>
+      <article class="reel"><video controls preload="none" playsinline poster="assets/img/poster-reel-ijeoma.jpg" data-vid="reel-ijeoma"><source src="assets/video/reel-ijeoma.mp4" type="video/mp4"></video>
+        <div class="meta"><b>Ijeoma, Oma Organics</b>On year five, customers who love it, and why they were not coming back.</div></article>
+    </div>
+    <div class="rail rv">
+      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-30yr.jpg" data-vid="review-30yr"><source src="assets/video/review-30yr.mp4" type="video/mp4"></video><div class="meta"><b>Thirty years in business</b>Mostly on word of mouth.</div></article>
+      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-older.jpg" data-vid="review-older"><source src="assets/video/review-older.mp4" type="video/mp4"></video><div class="meta"><b>What changed</b>After the site went live.</div></article>
+      <article class="vtall"><video controls preload="none" playsinline poster="assets/img/poster-review-03.jpg" data-vid="review-03"><source src="assets/video/review-03.mp4" type="video/mp4"></video><div class="meta"><b>The part that surprised him</b>In his own words.</div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT TO EXPECT ===== -->
+<section>
   <div class="wrap narrow stack g3">
     <div class="center stack g2">
       <p class="eyebrow rv">What to expect</p>
       <h2 class="rv">What happens on the call</h2>
-      <p class="lede rv" style="color:#B9C2D0">Four things, and none of them is a pitch.</p>
+      <p class="lede rv">Four things, and none of them is a pitch.</p>
     </div>
     <div class="agenda rv">
-      <article class="ag"><span class="n">1</span><span><b>We show you the site</b><span>The one we already built for you, and why we made the choices we made.</span></span></article>
-      <article class="ag"><span class="n">2</span><span><b>You tell us what's wrong with it</b><span>The colours, the services, the words. Whatever we got wrong.</span></span></article>
-      <article class="ag"><span class="n">3</span><span><b>We answer what's still open</b><span>Including anything on this page you want to push on.</span></span></article>
-      <article class="ag"><span class="n">4</span><span><b>You tell us if we're a fit</b><span>If you've already decided we're not, reply and say so. We'd rather know than take up your afternoon.</span></span></article>
+      <article class="ag"><span class="n">1</span><span><b>We show you the site</b><span class="d">The one we already built for you, and why we made the choices we made.</span></span></article>
+      <article class="ag"><span class="n">2</span><span><b>You tell us what's wrong with it</b><span class="d">The colours, the services, the words. Whatever we got wrong.</span></span></article>
+      <article class="ag"><span class="n">3</span><span><b>We answer what's still open</b><span class="d">Including anything on this page you want to push on.</span></span></article>
+      <article class="ag"><span class="n">4</span><span><b>You tell us if we're a fit</b><span class="d">If you have already decided we are not, reply and say so. We would rather know than take up your afternoon.</span></span></article>
     </div>
-    <div class="center stack g2 rv">
-      <p style="color:#B9C2D0">Want something answered before then?</p>
-      <div><a class="btn" href="tel:+16784040309">Call or text 678-404-0309</a></div>
+  </div>
+</section>
+
+<!-- ===== SIMPLE PRICING ===== -->
+<section class="band">
+  <div class="wrap stack g3">
+    <div class="center"><p class="eyebrow rv">Simple pricing</p></div>
+    <div class="pricebox rv">
+      <span class="lbl">One time</span>
+      <div class="fig">$297 - $997</div>
+      <div class="terms">One payment.<br>You own it.<br>Money back guarantee.</div>
+    </div>
+    <div class="note rv">
+      <p>You keep the website. You keep the reviews it collected for you. You keep any customers.</p>
+      <p>That's how sure we are, this isn't just a business card.</p>
+      <div class="sig">Solid Booked Pro</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap"><span class="stars">★★★★★</span>Solid Booked Pro &nbsp;&middot;&nbsp; <a href="tel:+16784040309">678-404-0309</a></div>
+  <img src="assets/img/logo.png" alt="Solid Booked Pro">
+  <div class="wrap">One payment &middot; No contract &middot; You own it</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -527,6 +473,36 @@ footer .stars{color:var(--gold);letter-spacing:.1em;display:block;margin-bottom:
   function ev(n,p){if(typeof gtag==='function'){gtag('event',n,p||{})}
     if(typeof clarity==='function'){try{clarity('event',n)}catch(e){}}}
 
+  /* ---- main video: demo.scalingsos.com player pattern ---- */
+  var P=document.getElementById('player'),V=document.getElementById('v'),
+      LF=document.getElementById('lfill'),TS=document.getElementById('tapSound'),BP=document.getElementById('bigplay');
+  if(P&&V){
+    var unmuted=false;
+    V.addEventListener('timeupdate',function(){
+      if(!V.duration||!isFinite(V.duration))return;
+      /* bar deliberately runs ahead of playback */
+      LF.style.width=Math.min(100,(V.currentTime/V.duration)*100*1.45)+'%';
+    });
+    V.addEventListener('play',function(){P.classList.add('playing');P.classList.remove('paused')});
+    V.addEventListener('pause',function(){P.classList.remove('playing');P.classList.add('paused')});
+    function unmute(e){
+      if(e)e.stopPropagation();
+      V.muted=false;V.loop=false;V.currentTime=0;V.controls=true;unmuted=true;
+      TS.classList.add('gone');
+      var pr=V.play();if(pr&&pr.catch)pr.catch(function(){});
+      ev('video_unmute',{video:'walkthrough'});
+    }
+    function toggle(){if(!unmuted){unmute();return}
+      if(V.paused){V.play()}else{V.pause()}}
+    TS.addEventListener('click',unmute);
+    BP.addEventListener('click',toggle);
+    V.addEventListener('click',toggle);
+    P.tabIndex=0;
+    P.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle()}});
+    var a=V.play();if(a&&a.catch)a.catch(function(){P.classList.add('paused')});
+  }
+
+  /* ---- slideshows ---- */
   document.querySelectorAll('[data-deck]').forEach(function(deck,di){
     var track=deck.querySelector('.slides'),n=deck.querySelectorAll('.slide').length,i=0;
     var bar=document.createElement('div');bar.className='deck-bar';
@@ -559,10 +535,10 @@ footer .stars{color:var(--gold);letter-spacing:.1em;display:block;margin-bottom:
   if(window.gsap&&!reduce){
     gsap.registerPlugin(ScrollTrigger);
     gsap.utils.toArray('.rv').forEach(function(el){
-      gsap.to(el,{opacity:1,y:0,duration:.55,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}})});
-    gsap.to('#prog',{width:'100%',ease:'none',scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:.3}});
+      gsap.to(el,{opacity:1,y:0,duration:.55,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 93%',once:true}})});
   } else {document.querySelectorAll('.rv').forEach(function(el){el.style.opacity=1;el.style.transform='none'})}
 
+  /* ---- analytics ---- */
   ev('brief_view',{device:matchMedia('(max-width:767px)').matches?'mobile':matchMedia('(max-width:1023px)').matches?'tablet':'desktop',
     viewport_w:innerWidth,referrer:document.referrer||'direct'});
   var marks=[25,50,75,90,100],hit={};
@@ -584,9 +560,6 @@ footer .stars{color:var(--gold);letter-spacing:.1em;display:block;margin-bottom:
     v.addEventListener('play',function(){ev('video_play',{video:v.dataset.vid})},{once:true});
     v.addEventListener('timeupdate',function(){if(!v.duration)return;var p=v.currentTime/v.duration;
       [.25,.5,.75,.95].forEach(function(m){if(p>=m&&!q[m]){q[m]=1;ev('video_progress',{video:v.dataset.vid,percent:Math.round(m*100)})}})})});
-  document.querySelectorAll('.mod').forEach(function(d){d.addEventListener('toggle',function(){
-    if(d.open)ev('question_open',{question:d.querySelector('summary span:nth-child(2)').textContent.trim().slice(0,60)})})});
-  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){a.addEventListener('click',function(){ev('tel_click',{})})});
 })();
 </script>
 </body>
