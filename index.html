@@ -556,7 +556,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     V.addEventListener('click',toggle);
     P.tabIndex=0;
     P.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle()}});
-    var a=V.play();if(a&&a.catch)a.catch(function(){P.classList.add('paused')});
+    var a=V.play();if(a){if(a.then)a.then(function(){startBar()});if(a.catch)a.catch(function(){P.classList.add('paused')})}
   }
 
   /* ---- slideshows ---- */
