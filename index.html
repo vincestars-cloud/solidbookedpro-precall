@@ -136,6 +136,10 @@ section{padding-block:var(--gap)}
 .arw:disabled{opacity:.3;cursor:default}
 .ct{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
 
+.slide img.lg,.slide .sv.lg{max-height:250px}
+.slist{list-style:none;display:grid;gap:.5rem;margin:0;padding:0;text-align:left;max-width:36ch;font-size:.95rem;color:var(--ink2)}
+.slist li{display:grid;grid-template-columns:auto 1fr;gap:.55rem;align-items:start;line-height:1.45}
+.slist li:before{content:"";width:.4rem;height:.4rem;border-radius:50%;background:var(--gold);margin-top:.5rem}
 /* ---- how it works (matches Contractor Independence) ---- */
 .hiw-head{max-width:900px}
 .eyebrow.lead{justify-content:flex-start}
@@ -316,8 +320,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       <div class="deck" data-deck><div class="slides">
         <div class="slide q"><div class="big">What's the price?</div><p>And is there anything else waiting for us later?</p></div>
         <div class="slide"><div class="big">One payment.<br><span class="pop">$297 to $997.</span></div><p>Where it lands depends on how much there is to build. That is the whole cost.</p></div>
-        <div class="slide"><div class="big">Almost everything sold to you is monthly.</div><p>A retainer, a subscription, a management fee. The kind of thing you forget you are paying until you go looking. This is not that.</p></div>
-        <div class="slide"><div class="big">Nothing renews.</div><p>No contract. No setup fee. Nothing to cancel, because nothing is running.</p></div>
+        <div class="slide"><div class="big">Nothing renews.</div><p>No contract. No setup fee. Nothing to cancel.</p></div>
         <div class="slide"><div class="big">Then we watch it for a year.</div><p>Not bill you for the year. Watch it. If something is not pulling its weight, that is our problem to fix, and you have already paid whatever you are going to pay.</p></div>
       </div></div>
 
@@ -325,50 +328,49 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
         <div class="slide q"><div class="big">How long before we see anything?</div><p>Straight answer, including the part you will not love.</p></div>
         <div class="slide"><div class="big">Reviews move first.</div><p>That is usually the first thing you notice, inside the first few weeks.</p></div>
         <div class="slide"><div class="big">More reviews means more customers see you.</div>
-          <video class="sv" autoplay muted loop playsinline preload="metadata" poster="assets/img/poster-rank-climb.jpg"><source src="assets/video/rank-climb.mp4" type="video/mp4"></video></div>
+          <video class="sv lg" autoplay muted loop playsinline preload="metadata" poster="assets/img/poster-rank-climb.jpg"><source src="assets/video/rank-climb.mp4" type="video/mp4"></video></div>
         <div class="slide"><div class="big">The slow part is coming up on your own in a search.</div><p>That takes time. Anybody who tells you different is guessing or lying to you.</p></div>
-        <div class="slide"><div class="big">So it's built around that gap.</div><p>Reviews and traffic carry the first stretch so you see a return immediately, while the slow part builds underneath it.</p></div>
-        <div class="slide"><div class="big"><span class="pop">45 days.</span><br>Something real you can point at.</div><p>More reviews than you had. New customer calls you can trace back to it. If nothing has moved by then, ask us hard questions.</p></div>
+        <div class="slide"><div class="big">At no extra cost to you, we run ads.</div><p>While the slow part builds, we run ads so you can get qualified prospects calling you and get an ROI on your site.</p></div>
+        <div class="slide"><div class="big"><span class="pop">45 days.</span><br>So you have something real you can point at.</div><p>More reviews than you had. New enquiries you can trace back to it.</p><p>If nothing has moved by then, ask us hard questions.</p></div>
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
         <div class="slide q"><div class="big">What happens the day we're done working together?</div><p>The short version: you keep everything.</p></div>
-        <div class="slide"><div class="big">An owner was asked for <span class="pop">$2,000</span> to get his own domain back.</div><p>The domain itself costs about ten dollars. He had been paying that company for years, and they had been holding the keys the whole time.</p></div>
         <div class="slide"><div class="big">Yours. In your name.</div><p>Built on your domain, registered to you. Not licensed, not rented, not sitting in our account.</p></div>
         <div class="slide"><div class="big">You keep the reviews and the customers.</div><p>The reviews live on your Google page, they were always yours. Anybody who found you through the site is your customer.</p></div>
         <div class="slide"><div class="big">Ask the next person who calls you the same question.</div><p>Who owns the domain, and will you put that in writing. You will learn a lot from how long it takes them to answer.</p></div>
+        <div class="slide"><div class="big">These are the stories we hear every day.</div><p>Don't let another business charge you $2,000 for your own domain.</p></div>
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
-        <div class="slide q"><div class="big">Why now and not in two years?</div><p>Two things changed. Both worth thirty seconds.</p></div>
-        <div class="slide"><div class="big">You can't scroll past page one anymore.</div>
+        <div class="slide q"><div class="big">Why should I get a website now?</div><p>Two things changed. Both worth thirty seconds.</p></div>
+        <div class="slide"><div class="big">Google no longer lets you scroll past page 1.</div>
           <video class="sv" autoplay muted loop playsinline preload="metadata" poster="assets/img/poster-google-scroll.jpg"><source src="assets/video/google-scroll.mp4" type="video/mp4"></video></div>
-        <div class="slide"><div class="big">Google now has a button that just gets prices.</div>
+        <div class="slide"><div class="big">Google has a button that can find compatible sites to get prices.</div>
           <img src="assets/img/ai-get-prices.webp" alt="A Google result with a Have AI get prices button" loading="lazy"></div>
         <div class="slide"><div class="big">Everybody is bidding for those top spots.</div><p>And the price of standing there goes up every year. That is a crowded room, and it costs more to be in it every time you look.</p></div>
-        <div class="slide"><div class="big">But 1 in 4 are asking somewhere else.</div>
+        <div class="slide"><div class="big">1 in 4 people are asking ChatGPT for recommendations.</div>
           <img src="assets/img/google-vs-chatgpt.png" alt="The same search asked on Google and on ChatGPT" loading="lazy"></div>
         <div class="slide"><div class="big">Only 1.2% of business sites come up there.</div><p>That is a room with nobody in it. It will not stay that way. The same thing happened with Google fifteen years ago, and now it costs what it costs.</p></div>
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
-        <div class="slide q"><div class="big">Where does a lead actually go?</div><p>An owner looked at his own site and had no idea.</p></div>
+        <div class="slide q"><div class="big">After they answer the booking questions</div><p>Here is exactly where it goes.</p></div>
         <div class="slide"><div class="big">A few questions, not a blank box.</div>
           <img src="assets/img/multi-form.gif" alt="A short multi step form" loading="lazy"></div>
         <div class="slide"><div class="big">Your phone buzzes.</div><p>A text with their name, their number, and what they said they need. Same as if they had texted you directly.</p></div>
         <div class="slide"><div class="big">On a job? They still get an answer.</div>
           <img src="assets/img/review-followup.png" alt="An automated follow up message" loading="lazy"></div>
-        <div class="slide"><div class="big">Nothing sits in a dashboard waiting for you.</div>
+        <div class="slide"><div class="big">Or to a CRM if you prefer.</div>
           <img src="assets/img/plate-contacts.png" alt="A contact list showing every enquiry and its status" loading="lazy"></div>
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
         <div class="slide q"><div class="big">What don't you promise?</div><p>Straight about what we are not going to say.</p></div>
-        <div class="slide"><div class="big">Not the top spot on Google.</div><p>Nobody can promise that. Google decides it, it moves constantly, and anyone telling you different is either guessing or counting on you not knowing.</p></div>
+        <div class="slide"><div class="big">Get you to top spot on Google tomorrow.</div><p>Nobody can promise that. Google decides it, it moves constantly, and anyone telling you different is either guessing or counting on you not knowing.</p></div>
         <div class="slide"><div class="big">Not that you'll close them.</div><p>That is your end, and you are better at it than we are. We can get somebody to raise their hand. We cannot make them sign.</p></div>
-        <div class="slide"><div class="big">Not if nobody picks up.</div><p>We can send people and keep talking to the ones who are not ready. If the phone rings out, none of the rest matters.</p></div>
         <div class="slide"><div class="big">One thing we will promise.<br><span class="pop">5 qualified prospects a month.</span></div><p>An average across the first year. If it comes up short, you get your money back, and you keep the site and the reviews.</p></div>
-        <div class="slide"><div class="big">Qualified means all three.</div><p>They came looking for you, not a lead sold to four other businesses. They need what you actually do. They are inside your service area.</p></div>
+        <div class="slide"><div class="big">Qualified means all three.</div><ul class="slist"><li>They came looking for you, not a lead sold to four other businesses</li><li>They need what you actually do</li><li>They are inside your service area</li></ul></div>
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
@@ -386,6 +388,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
         <div class="slide"><div class="big">Only two kinds of business win there.</div><p>The ones with somebody paid to sit and dial the second a lead lands, and the ones who keep calling long after everyone else quit.</p></div>
         <div class="slide"><div class="big">SEO brings the best person there is. The catch is the clock.</div><p>You pay every month for something you might see in six. And a report does not cover payroll.</p></div>
         <div class="slide"><div class="big">None of those are bad businesses.</div><p>They are answers to a question you were not asking.</p></div>
+        <div class="slide"><div class="big">So we built the part they all skipped.</div><p>A site that gets found, reviews that lift it, and follow-up that catches everyone who enquires. Those three work as one. Miss any of them and you are paying to fill something that is not ready yet.</p></div>
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
@@ -393,7 +396,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
         <div class="slide"><div class="big">You don't have to understand any of this.</div><p>Not the domain, not the hosting, not why one page comes up in a search and another does not. That is the job you are paying for.</p></div>
         <div class="slide"><div class="big">Nothing to log into.</div><p>No dashboard. No password to keep somewhere. No tool to learn.</p></div>
         <div class="slide"><div class="big">Want something changed? You tell us.</div>
-          <img src="assets/img/site-service-pages.png" alt="A service page from a finished site" loading="lazy"></div>
+          <img class="lg" src="assets/img/site-roofing.png" alt="A finished site built for a roofing company" loading="lazy"></div>
         <div class="slide"><div class="big">One owner put it best.</div><p>"I don't know nothing, that's why I'm calling you." That is the right answer. It is the whole reason the job exists.</p></div>
       </div></div>
 
@@ -402,12 +405,12 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
         <div class="slide"><div class="big">Not because we're generous.</div><p>If we describe a website to you, you have to take our word for it. You have probably taken somebody's word for it before and it cost you.</p></div>
         <div class="slide"><div class="big">Looking at the real thing, there's nothing to take our word for.</div>
           <img src="assets/img/site-roofing-mobile.png" alt="A finished site on a phone" loading="lazy"></div>
-        <div class="slide"><div class="big">You can tell us it's wrong.</div><p>That we got your services wrong, or the colours are ugly, or that is not even what you do anymore. That is a better use of an hour than us talking at you.</p></div>
+        <div class="slide"><div class="big">You can tell us it's wrong.</div><p>That we got your services wrong, or the colours are ugly, or that is not even what you do anymore. That is a better use of time than us talking at you.</p></div>
       </div></div>
 
       <div class="deck" data-deck><div class="slides">
         <div class="slide q"><div class="big">Who does this not work for?</div><p>It will save us both an hour if one of these is you.</p></div>
-        <div class="slide"><div class="big">It works best if three things are true.</div><p>You do good work. You have helped enough people recently for there to be something to work with. And you have room to take more on.</p></div>
+        <div class="slide"><div class="big">It works best if three things are true.</div><p>You do good work. You have helped enough people recently. And you have room to take more on.</p></div>
         <div class="slide"><div class="big">Too new to have that history?</div><p>Nothing wrong with being new. There is just nothing for us to pull on yet.</p></div>
         <div class="slide"><div class="big">Need this to save the business?</div><p>If it is the last thing you are trying, the timing is wrong. This works as something you build while you are steady, not as a rescue.</p></div>
         <div class="slide"><div class="big">Only question is who's cheapest?</div><p>We are not, and we are not trying to be.</p></div>
@@ -415,11 +418,11 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
 
       <div class="deck" data-deck><div class="slides">
         <div class="slide q"><div class="big">What happens after we say yes?</div><p>Day one, day two, and the first week.</p></div>
-        <div class="slide"><div class="big">Day one.<br>You look at it.</div><p>You get a link to the site and mark anything you want changed. Nothing to set up, no password to keep track of.</p></div>
+        <div class="slide"><div class="big">Day one.<br>You look at it.</div><p>You get a link to the site and mark anything you want changed.</p></div>
         <div class="slide"><div class="big">Day two.<br>Reviews start.</div>
           <img src="assets/img/review-request.png" alt="A review request message" loading="lazy"></div>
         <div class="slide"><div class="big">Inside the first week.</div><p>We get you set up to show up when people search, including the AI ones, and the traffic starts coming your way.</p></div>
-        <div class="slide"><div class="big">What we need from you is one thing.</div><p>The customers you have already worked with, so we can ask them how it went. No calls to sit in on, nothing to check every week.</p></div>
+        <div class="slide"><div class="big">What we need from you is one thing.</div><p>The customers you have already worked with, so we can ask them how it went.</p></div>
       </div></div>
 
     </div>
@@ -439,7 +442,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
         <p>Every finished job triggers a personalised ask automatically. Most owners never ask at all, because asking feels awkward. That alone is four times the review opportunities of asking by hand.</p></div>
       <div class="op">&times;</div>
       <div class="mcell"><div class="fig">3<span>x</span></div><span class="lbl">Better conversion</span>
-        <p>Between 50 and 70% of customers actually leave one, because the ask is personal and timed to the job rather than a generic blast weeks later.</p></div>
+        <p>Between 50 and 70% of customers actually leave one, because the ask is personal, with an image with their name, and timed to the job rather than a generic blast.</p></div>
       <div class="op">=</div>
       <div class="mcell out"><div class="fig">12<span>x</span></div><span class="lbl">The result</span>
         <p>More reviews lifts where you rank. Ranking higher brings more enquiries. Following every one of them up turns more of those into work.</p></div>
