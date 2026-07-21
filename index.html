@@ -566,37 +566,41 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
   var P=document.getElementById('player'),V=document.getElementById('v'),
       LF=document.getElementById('lfill'),TS=document.getElementById('tapSound'),BP=document.getElementById('bigplay');
   if(P&&V){
-    var unmuted=false;
-    /* fake load bar: runs faster than playback, self-corrects once duration is known, never resets */
-    var barPct=0,barOn=false,last=0;
-    function fillRate(){var d=(V.duration&&isFinite(V.duration)&&V.duration>1)?V.duration:90;
-      return 100/((d/1.45)*1000);} /* percent per ms */
-    function tick(now){
-      if(!barOn)return;
-      if(last){barPct=Math.min(100,barPct+ (now-last)*fillRate());LF.style.width=barPct.toFixed(2)+'%';}
-      last=now;
-      if(barPct<100)requestAnimationFrame(tick);
+    var unmuted=false, FEEL_EXP=0.60;   /* lower = early progress feels faster */
+    /* fake progress: races ahead of real playback early, converges at the end */
+    function paintBar(){
+      var d=V.duration;
+      if(!d||!isFinite(d)||d<=0)return;
+      var p=Math.min(1,Math.max(0,V.currentTime/d));
+      LF.style.width=(Math.pow(p,FEEL_EXP)*100).toFixed(2)+'%';
     }
-    function startBar(){if(barOn)return;barOn=true;last=0;requestAnimationFrame(tick);}
-    V.addEventListener('playing',startBar);
-    V.addEventListener('play',startBar);
-    V.addEventListener('play',function(){if(unmuted){P.classList.add('playing');P.classList.remove('paused')}});
-    V.addEventListener('pause',function(){if(unmuted){P.classList.remove('playing');P.classList.add('paused')}});
+    V.addEventListener('timeupdate',paintBar);
+    V.addEventListener('loadedmetadata',paintBar);
+    function setPlaying(on){
+      P.classList.toggle('playing',!!on);
+      P.classList.toggle('paused',!on);
+    }
     function unmute(e){
       if(e)e.stopPropagation();
-      V.muted=false;V.loop=false;V.currentTime=0;V.controls=true;unmuted=true;
+      V.muted=false;V.loop=false;V.currentTime=0;unmuted=true;
       TS.classList.add('gone');
-      var pr=V.play();if(pr&&pr.catch)pr.catch(function(){});
+      setPlaying(true);                      /* set directly: no new play event fires */
+      var pr=V.play();if(pr&&pr.catch)pr.catch(function(){setPlaying(false)});
       ev('video_unmute',{video:'walkthrough'});
     }
-    function toggle(){if(!unmuted){unmute();return}
-      if(V.paused){V.play()}else{V.pause()}}
+    function toggle(){
+      if(!unmuted){unmute();return}
+      if(V.paused){V.play();setPlaying(true)}else{V.pause();setPlaying(false)}
+    }
+    V.addEventListener('play',function(){if(unmuted)setPlaying(true)});
+    V.addEventListener('pause',function(){if(unmuted)setPlaying(false)});
+    V.addEventListener('ended',function(){setPlaying(false)});
     TS.addEventListener('click',unmute);
     BP.addEventListener('click',toggle);
     V.addEventListener('click',toggle);
     P.tabIndex=0;
     P.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle()}});
-    var a=V.play();if(a){if(a.then)a.then(function(){startBar()});if(a.catch)a.catch(function(){P.classList.add('paused')})}
+    var a=V.play();if(a&&a.catch)a.catch(function(){P.classList.add('paused')});
   }
 
   /* ---- slideshows ---- */
