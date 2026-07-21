@@ -460,15 +460,15 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
       <p class="lede rv">Same business, same services, same owner. Only the first impression changed.</p>
     </div>
     <div class="bagrid rv">
-      <figure class="bacard"><img src="assets/img/ba-oma.jpg" alt="A skincare brand site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-rebrandit.jpg" alt="A pet grooming site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-thrst.jpg" alt="A fitness app site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-parcelcube.jpg" alt="A logistics site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-ashley.jpg" alt="A speaker coaching site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-eleni.jpg" alt="A hypnotherapy practice site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-kendall.jpg" alt="A coaching site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-zubalenok.jpg" alt="A fitness program site before and after" loading="lazy"></figure>
-      <figure class="bacard"><img src="assets/img/ba-rtt.jpg" alt="A therapy training site before and after" loading="lazy"></figure>
+      <figure class="bacard"><img src="assets/img/ba-oma-t.jpg" data-full="assets/img/ba-oma.jpg" width="680" height="680" alt="A skincare brand site before and after" loading="lazy" decoding="async"></figure>
+      <figure class="bacard"><img src="assets/img/ba-rebrandit-t.jpg" data-full="assets/img/ba-rebrandit.jpg" width="680" height="658" alt="A pet grooming site before and after" loading="lazy" decoding="async"></figure>
+      <figure class="bacard"><img src="assets/img/ba-thrst-t.jpg" data-full="assets/img/ba-thrst.jpg" width="680" height="658" alt="A fitness app site before and after" loading="lazy" decoding="async"></figure>
+      <figure class="bacard"><img src="assets/img/ba-parcelcube-t.jpg" data-full="assets/img/ba-parcelcube.jpg" width="680" height="658" alt="A logistics site before and after" loading="lazy" decoding="async"></figure>
+      <figure class="bacard"><img src="assets/img/ba-ashley-t.jpg" data-full="assets/img/ba-ashley.jpg" width="680" height="658" alt="A speaker coaching site before and after" loading="lazy" decoding="async"></figure>
+      <figure class="bacard"><img src="assets/img/ba-eleni-t.jpg" data-full="assets/img/ba-eleni.jpg" width="680" height="658" alt="A hypnotherapy practice site before and after" loading="lazy" decoding="async"></figure>
+      <figure class="bacard"><img src="assets/img/ba-kendall-t.jpg" data-full="assets/img/ba-kendall.jpg" width="680" height="658" alt="A coaching site before and after" loading="lazy" decoding="async"></figure>
+      <figure class="bacard"><img src="assets/img/ba-zubalenok-t.jpg" data-full="assets/img/ba-zubalenok.jpg" width="680" height="658" alt="A fitness program site before and after" loading="lazy" decoding="async"></figure>
+      <figure class="bacard"><img src="assets/img/ba-rtt-t.jpg" data-full="assets/img/ba-rtt.jpg" width="680" height="658" alt="A therapy training site before and after" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
@@ -703,7 +703,7 @@ footer{background:var(--navy);color:#93A0B4;padding-block:2.2rem;text-align:cent
     function openLb(src,alt){img.src=src;img.alt=alt||'';lb.classList.add('on');document.body.style.overflow='hidden';ev('lightbox_open',{})}
     function closeLb(){lb.classList.remove('on');document.body.style.overflow='';img.src=''}
     document.querySelectorAll('.bacard img').forEach(function(i){
-      i.addEventListener('click',function(){openLb(i.currentSrc||i.src,i.alt)})});
+      i.addEventListener('click',function(){openLb(i.dataset.full||i.currentSrc||i.src,i.alt)})});
     lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
     x.addEventListener('click',closeLb);
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))closeLb()});
